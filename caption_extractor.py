@@ -73,7 +73,7 @@ def caption_scene(frame_path, model=None):
     """
     client = OpenAI(
         api_key=os.environ.get("VISION_LLM_API_KEY", "EMPTY"),
-        base_url=os.environ.get("VISION_LLM_BASE_URL")
+        base_url=os.environ.get("VISION_LLM_BASE_URL", "https://api.fireworks.ai/inference/v1")
     )
 
     b64_image = base64.b64encode(Path(frame_path).read_bytes()).decode("utf-8")
