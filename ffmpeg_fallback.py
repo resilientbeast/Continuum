@@ -76,9 +76,11 @@ def _build_stem_tracks(scene_results, stem_audio_paths, scene_durations, sample_
             if key in stem_audio_paths:
                 y, sr = sf.read(str(stem_audio_paths[key]), dtype="float32", always_2d=False)
                 if sr != sample_rate:
-                    raise ValueError(
-                        f"Sample rate mismatch for {key}: file is {sr}Hz, expected {sample_rate}Hz"
-                    )
+                    import librosa
+                    if y.ndim > 1:
+                        y = y.mean(axis=1)
+                    y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
+                    sr = sample_rate
                 if y.ndim > 1:
                     y = y.mean(axis=1)
                 n = min(len(y), scene_len_samples)

@@ -134,10 +134,11 @@ def build_adm_bwf(scene_results, stem_audio_paths, scene_durations,
             if key in stem_audio_paths:
                 y, sr = sf.read(str(stem_audio_paths[key]), dtype="float32", always_2d=False)
                 if sr != sample_rate:
-                    raise ValueError(
-                        f"Sample rate mismatch for {key}: file is {sr}Hz, "
-                        f"pipeline expects {sample_rate}Hz. Resample stems first."
-                    )
+                    import librosa
+                    if y.ndim > 1:
+                        y = y.mean(axis=1)
+                    y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
+                    sr = sample_rate
                 if y.ndim > 1:
                     y = y.mean(axis=1)  # collapse to mono if needed
                 n = min(len(y), scene_len_samples)
