@@ -222,7 +222,7 @@ def render_bwf(input_bwf_path, output_path, target="5.1.4", extra_args=None):
     this in the pipeline; a failed render here is the kill-switch signal.
     """
     system = TARGET_SYSTEMS.get(target, target)
-    cmd = ["ear-render", "-s", system, str(input_bwf_path), str(output_path)]
+    cmd = ["ear-render", "-s", system, "--enable-block-duration-fix", str(input_bwf_path), str(output_path)]
     if extra_args:
         cmd[1:1] = extra_args
     try:
