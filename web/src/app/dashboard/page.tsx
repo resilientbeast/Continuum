@@ -23,6 +23,7 @@ export default function Dashboard() {
   const [progressMessage, setProgressMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [targetFormat, setTargetFormat] = useState<"binaural" | "5.1" | "5.1.4" | "7.1.4">("binaural");
   
   const [history, setHistory] = useState<Job[]>([]);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
@@ -165,7 +166,8 @@ export default function Dashboard() {
         },
         body: JSON.stringify({
           filename: file.name,
-          s3_key: presignData.s3_key
+          s3_key: presignData.s3_key,
+          target_format: targetFormat
         }),
       });
       
@@ -316,7 +318,22 @@ export default function Dashboard() {
                           <p className="text-white font-medium text-lg text-center break-all">{file.name}</p>
                           <p className="text-slate-400 text-sm mt-2">{file.size ? (file.size / (1024 * 1024)).toFixed(2) : "Unknown size"} MB</p>
                           
-                          <div className="flex gap-4 mt-8">
+                          <div className="mt-8 w-full max-w-xs">
+                            <label className="block text-sm font-medium text-slate-400 mb-2">Output Format</label>
+                            <select 
+                              value={targetFormat}
+                              onChange={(e) => setTargetFormat(e.target.value as any)}
+                              disabled={status === "uploading"}
+                              className="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block p-2.5 outline-none transition-colors"
+                            >
+                              <option value="binaural">Stereo Binaural (Headphones)</option>
+                              <option value="5.1">5.1 Surround</option>
+                              <option value="5.1.4">5.1.4 Immersive</option>
+                              <option value="7.1.4">7.1.4 Immersive</option>
+                            </select>
+                          </div>
+
+                          <div className="flex gap-4 mt-6">
                             <button 
                               onClick={handleReset}
                               className="px-6 py-3 text-sm font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors"

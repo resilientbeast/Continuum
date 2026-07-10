@@ -103,8 +103,9 @@ async def get_s3_upload_url(filename: str, user_id: str = Depends(get_current_us
 class JobCreate(BaseModel):
     filename: str
     s3_key: str
+    target_format: str = "binaural"
 
-def run_pipeline_task(job_id: str, s3_key: str):
+def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural"):
     job_dir = OUTPUT_DIR / job_id
     job_dir.mkdir(exist_ok=True)
     video_path = job_dir / "input_video.mp4"
@@ -116,11 +117,19 @@ def run_pipeline_task(job_id: str, s3_key: str):
         s3_client.download_file(AWS_S3_BUCKET_NAME, s3_key, str(video_path))
         
         update_job(job_id, message="Initializing pipeline...")
+        if target_format == "binaural":
+            stages = "segment,separate,features,agent,render,binaural"
+            pipeline_target = "5.1"
+        else:
+            stages = "segment,separate,features,agent,render"
+            pipeline_target = target_format
+
         cmd = [
             "python3", "main.py",
             "--input-video", str(video_path),
             "--output-dir", str(job_dir),
-            "--only", "segment,separate,features,agent,render,binaural"
+            "--only", stages,
+            "--target", pipeline_target
         ]
         
         env = os.environ.copy()
@@ -140,7 +149,11 @@ def run_pipeline_task(job_id: str, s3_key: str):
             update_job(job_id, status="failed", message="Pipeline failed. Check logs.")
             return
 
-        result_file = job_dir / "film_binaural.wav"
+        if target_format == "binaural":
+            result_file = job_dir / "film_binaural.wav"
+        else:
+            result_file = job_dir / f"film_{target_format}.wav"
+
         if not result_file.exists():
             result_file = job_dir / "film_fallback_5.1.wav"
             
@@ -182,7 +195,7 @@ async def create_job(job_req: JobCreate, user_id: str = Depends(get_current_user
     conn.commit()
     conn.close()
     
-    thread = threading.Thread(target=run_pipeline_task, args=(job_id, job_req.s3_key))
+    thread = threading.Thread(target=run_pipeline_task, args=(job_id, job_req.s3_key, job_req.target_format))
     thread.start()
     
     return {"job_id": job_id, "status": "queued"}

@@ -22,7 +22,7 @@ client = OpenAI(
     api_key=os.environ.get("LLM_API_KEY", "EMPTY"),
     base_url=os.environ.get("LLM_BASE_URL", "https://api.fireworks.ai/inference/v1"),
 )
-MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/llama-v3p1-8b-instruct").strip('\"\' ')
+MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/deepseek-v4-pro").strip('\"\' ')
 
 MEMORY_PATH = Path("output/coherence_memory.json")
 
@@ -48,7 +48,7 @@ error, not a deliberate creative choice.
 If visual_caption is null (visual analysis unavailable for this scene), reason from
 the stems and coherence memory alone - do not invent or assume visual details.
 
-Valid channels: center, left, right, surround_left, surround_right, bed_full, overhead.
+Valid channels: center, left, right, surround_left, surround_right, rear_left, rear_right, bed_full, overhead.
 Output STRICT JSON only, matching this schema, with no markdown fences and no
 commentary before or after the JSON:
 {

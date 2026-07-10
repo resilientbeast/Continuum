@@ -49,6 +49,8 @@ CHANNEL_POSITIONS = {
     "right":          dict(azimuth=-30.0, elevation=0.0,  diffuse=0.0),
     "surround_left":  dict(azimuth=110.0, elevation=0.0,  diffuse=0.0),
     "surround_right": dict(azimuth=-110.0, elevation=0.0, diffuse=0.0),
+    "rear_left":      dict(azimuth=135.0, elevation=0.0,  diffuse=0.0),
+    "rear_right":     dict(azimuth=-135.0, elevation=0.0, diffuse=0.0),
     "overhead":       dict(azimuth=0.0,   elevation=90.0, diffuse=0.0),
     # "bed_full": ambient/background beds aren't a single point source -
     # ADM's diffuse parameter (0=fully point-source, 1=fully diffuse) is
@@ -62,6 +64,7 @@ CHANNEL_POSITIONS = {
 TARGET_SYSTEMS = {
     "5.1": "0+5+0",       # no height - de-risked baseline
     "5.1.4": "4+5+0",     # + 4 height speakers, needed for "overhead"
+    "7.1.4": "4+7+0",     # 7.1 base + 4 height speakers
 }
 
 
