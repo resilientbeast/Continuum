@@ -22,7 +22,7 @@ client = OpenAI(
     api_key=os.environ.get("LLM_API_KEY", "EMPTY"),
     base_url=os.environ.get("LLM_BASE_URL", "https://api.fireworks.ai/inference/v1"),
 )
-MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/gemma-2-9b-it")
+MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/gemma2-9b-it")
 
 MEMORY_PATH = Path("output/coherence_memory.json")
 
