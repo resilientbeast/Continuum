@@ -159,14 +159,23 @@ def build_adm_bwf(scene_results, stem_audio_paths, scene_durations,
 
         for track_index, stem_name in enumerate(stem_names):
             blocks = []
-            for sid, channel_label in stem_scene_channels[stem_name]:
-                pos = _position_for(channel_label)
+            scene_to_channel = dict(stem_scene_channels[stem_name])
+
+            for sid in scene_ids:
+                if sid in scene_to_channel:
+                    channel_label = scene_to_channel[sid]
+                    pos = _position_for(channel_label)
+                    gain = 1.0
+                else:
+                    pos = _position_for("center")
+                    gain = 0.0
+
                 blocks.append(AudioBlockFormatObjects(
                     rtime=Fraction(scene_starts[sid]).limit_denominator(48000),
                     duration=Fraction(scene_durations[sid]).limit_denominator(48000),
                     position={"azimuth": pos["azimuth"], "elevation": pos["elevation"], "distance": 1.0},
                     diffuse=pos["diffuse"],
-                    gain=1.0,
+                    gain=gain,
                 ))
             builder.create_item_objects(
                 name=stem_name,
