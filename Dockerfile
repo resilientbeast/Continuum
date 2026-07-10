@@ -35,10 +35,13 @@ RUN pip3 install --no-cache-dir \
     boto3 \
     --extra-index-url https://download.pytorch.org/whl/cpu
 
-COPY . /app
-
 # Pre-download spaudiopy HRIR FABIAN dataset to avoid stalling the first user request
+# We copy only the script first so this layer caches cleanly across app code changes!
+COPY binaural_renderer.py /app/
 RUN python3 -c "from binaural_renderer import get_hrirs; get_hrirs(prefer_real=True)"
+
+# Now copy the rest of the application
+COPY . /app
 
 EXPOSE 8000
 
