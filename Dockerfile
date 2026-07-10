@@ -11,11 +11,10 @@ RUN apt-get update && apt-get install -y \
     portaudio19-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install CPU-only PyTorch first to keep image size small and prevent CUDA/ROCm bloat
-RUN pip3 install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-# Install demucs and other dependencies
+# Install all dependencies together with the CPU index URL to prevent 
+# pip from pulling incompatible ABI versions of torch/torchaudio
 RUN pip3 install --no-cache-dir \
+    torch torchaudio \
     demucs \
     scenedetect[opencv] \
     openai \
@@ -33,7 +32,8 @@ RUN pip3 install --no-cache-dir \
     python-multipart \
     pyjwt \
     cryptography \
-    boto3
+    boto3 \
+    --extra-index-url https://download.pytorch.org/whl/cpu
 
 COPY . /app
 
