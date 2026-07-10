@@ -78,7 +78,7 @@ export default function LandingPage() {
             className="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-medium text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 rounded-full backdrop-blur-sm shadow-[0_0_20px_rgba(99,102,241,0.15)]"
           >
             <Sparkles className="w-4 h-4 text-indigo-400" />
-            Powered by Fireworks AI & Gemma
+            Powered by Fireworks AI
           </motion.div>
 
           <motion.h1
