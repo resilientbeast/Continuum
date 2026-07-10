@@ -214,7 +214,10 @@ def render_bwf(input_bwf_path, output_path, target="5.1.4", extra_args=None):
     cmd = ["ear-render", "-s", system, str(input_bwf_path), str(output_path)]
     if extra_args:
         cmd[1:1] = extra_args
-    subprocess.run(cmd, check=True, capture_output=True, text=True)
+    try:
+        subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"ear-render failed. stderr: {e.stderr}") from e
     return output_path
 
 
