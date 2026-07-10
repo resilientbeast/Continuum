@@ -52,9 +52,8 @@ STAGE_ORDER = ["segment", "separate", "features", "agent", "render", "binaural",
 
 
 def stage_segment(video_path, output_dir):
-    """Detects scenes and writes their boundaries. TESTED: confirmed
-    against a synthetic 3-scene (2s/1.5s/2.5s hard-cut) test video, found
-    boundaries at 2.00s/3.52s/6.04s - within encoding rounding of exact."""
+    """Detects scenes and writes their boundaries."""
+    print("Stage: Detecting scenes...")
     scene_list = detect(str(video_path), ContentDetector())
     scenes = []
     for i, (start, end) in enumerate(scene_list, start=1):
@@ -80,16 +79,8 @@ def stage_segment(video_path, output_dir):
 
 
 def stage_separate(video_path, scenes, output_dir):
-    """
-    Extracts each scene's audio, runs real Demucs on it (4-stem: vocals,
-    drums, bass, other), returns {(scene_id, stem_name): wav_path}.
-
-    NOT TESTED end-to-end in this build - see the module docstring. The
-    demucs CLI invocation and output path convention below match Demucs'
-    documented usage (output goes to <out>/<model_name>/<track_stem>/*.wav)
-    as of the maintained adefossez/demucs fork - verify this against
-    whatever version actually installs in your notebook.
-    """
+    """Extracts each scene's audio, runs real Demucs on it."""
+    print("Stage: Separating stems with Demucs...")
     output_dir = Path(output_dir)
     scene_audio_dir = output_dir / "scene_audio"
     demucs_out_dir = output_dir / "demucs"
@@ -125,18 +116,8 @@ def stage_separate(video_path, scenes, output_dir):
 
 
 def stage_features(video_path, scenes, stem_audio_paths, output_dir):
-    """
-    Builds the harness's `stems` input per scene (TESTED: this build's
-    stem_feature_extractor.py run against real synthetic stem files), and
-    now also generates visual_caption automatically: a keyframe is pulled
-    directly from the original video at each scene's midpoint timestamp
-    and captioned via a vision-language model.
-
-    Captioning failure for a given scene is non-fatal -- it falls back to
-    a null caption for that scene rather than aborting feature extraction
-    for the whole film, consistent with every other stage's kill-switch
-    philosophy in this pipeline.
-    """
+    """Builds the harness's `stems` input per scene and visual_caption."""
+    print("Stage: Extracting features and visual captions...")
     output_dir = Path(output_dir)
     keyframe_dir = output_dir / "keyframes"
     keyframe_dir.mkdir(parents=True, exist_ok=True)
@@ -179,8 +160,8 @@ def stage_features(video_path, scenes, stem_audio_paths, output_dir):
 
 
 def stage_agent(scenes_with_stems):
-    """Runs the placement-reasoning agent. Robust against malformed-JSON 
-    and handles retries cleanly against the configured LLM endpoint."""
+    """Runs the placement-reasoning agent."""
+    print("Stage: Running placement-reasoning agent...")
     results = run_pipeline(scenes_with_stems)
     coherence = check_coherence(results)
     print(f"Coherence: {coherence['coherent_total']}/{coherence['total_recurring_checks']} "
@@ -192,12 +173,8 @@ def stage_agent(scenes_with_stems):
 
 
 def stage_render(scene_results, stem_audio_paths, scene_durations, output_dir, target="5.1"):
-    """
-    Kill-switch: tries the real ADM+EAR render first; ANY failure falls
-    back to the FFmpeg channel-based render rather than aborting the
-    pipeline. Both paths are individually tested (see SPEC.md Section 6);
-    what's new here is only the try/except wiring between them.
-    """
+    """Kill-switch: tries the real ADM+EAR render first; ANY failure falls back."""
+    print("Stage: Rendering spatial metadata...")
     output_dir = Path(output_dir)
     adm_path = output_dir / "film.adm.wav"
     rendered_path = output_dir / f"film_{target}.wav"
@@ -218,9 +195,8 @@ def stage_render(scene_results, stem_audio_paths, scene_durations, output_dir, t
 
 
 def stage_binaural(rendered_path, target, output_dir):
-    """Binaural stereo pass for headphone playback. TESTED against real
-    EAR output using the synthetic HRIR set; test get_real_hrirs() first
-    in your notebook per binaural_renderer.py's note."""
+    """Binaural stereo pass for headphone playback."""
+    print("Stage: Convolving binaural output...")
     from adm_renderer import TARGET_SYSTEMS
     output_dir = Path(output_dir)
     binaural_path = output_dir / "film_binaural.wav"

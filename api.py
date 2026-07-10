@@ -130,7 +130,7 @@ def run_pipeline_task(job_id: str, s3_key: str):
             line = line.strip()
             if line:
                 print(f"[PIPELINE {job_id}] {line}", flush=True)
-                if "Stage" in line or "Starting" in line or "Finished" in line or "Agent" in line or "extracted" in line:
+                if any(k in line for k in ["Stage", "Starting", "Finished", "Agent", "extracted", "Scene", "Coherence", "WARNING"]):
                     update_job(job_id, message=line)
                 
         process.stdout.close()
