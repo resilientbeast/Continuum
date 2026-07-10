@@ -411,14 +411,29 @@ export default function Dashboard() {
                     </p>
                     
                     <div className="flex gap-4">
-                      <a 
-                        href={`${API_URL}/download/${jobId}`}
-                        download
+                      <button 
+                        onClick={async () => {
+                          try {
+                            const token = await getToken();
+                            if (!token) throw new Error("Authentication failed");
+                            const res = await fetch(`${API_URL}/download/${jobId}`, {
+                              headers: { Authorization: `Bearer ${token}` }
+                            });
+                            if (!res.ok) throw new Error("Download failed");
+                            const data = await res.json();
+                            const a = document.createElement("a");
+                            a.href = data.url;
+                            a.download = `mix_${jobId}.wav`;
+                            a.click();
+                          } catch (err) {
+                            setError(err instanceof Error ? err.message : "Download failed");
+                          }
+                        }}
                         className="flex items-center gap-3 px-10 py-4 text-base font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl transition-all shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:scale-105"
                       >
                         <Download className="w-5 h-5" />
                         Download Mix
-                      </a>
+                      </button>
                     </div>
                   </motion.div>
                 )}

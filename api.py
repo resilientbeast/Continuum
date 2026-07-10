@@ -235,7 +235,7 @@ async def download_result(job_id: str, user_id: str = Depends(get_current_user))
             Params={'Bucket': AWS_S3_BUCKET_NAME, 'Key': result_s3_key},
             ExpiresIn=3600
         )
-        return RedirectResponse(url)
+        return {"url": url}
     except ClientError as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
 
