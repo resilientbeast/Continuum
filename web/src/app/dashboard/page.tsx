@@ -119,7 +119,7 @@ export default function Dashboard() {
             <span className="text-lg font-bold text-white">Continuum</span>
           </Link>
           <div className="flex items-center gap-4">
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           </div>
         </div>
       </header>

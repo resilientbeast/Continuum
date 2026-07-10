@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, AudioWaveform, Sparkles, Wand2 } from "lucide-react";
 import Link from "next/link";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
 export default function LandingPage() {
+  const { isLoaded, isSignedIn } = useUser();
+  
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Background gradients */}
@@ -24,24 +26,28 @@ export default function LandingPage() {
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <SignedOut>
-            <SignInButton mode="modal">
-              <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
-                Sign In
-              </button>
-            </SignInButton>
-            <SignInButton mode="modal">
-              <button className="px-4 py-2 text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
-                Get Started
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <Link href="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
-              Dashboard
-            </Link>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          {(!isLoaded || !isSignedIn) && (
+            <>
+              <SignInButton mode="modal">
+                <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignInButton mode="modal">
+                <button className="px-4 py-2 text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all">
+                  Get Started
+                </button>
+              </SignInButton>
+            </>
+          )}
+          {isSignedIn && (
+            <>
+              <Link href="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                Dashboard
+              </Link>
+              <UserButton />
+            </>
+          )}
         </div>
       </nav>
 
@@ -82,7 +88,7 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <SignedOut>
+          {(!isLoaded || !isSignedIn) && (
             <SignInButton mode="modal">
               <button className="group relative inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white bg-indigo-600 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-all hover:bg-indigo-500 hover:scale-105">
                 <Wand2 className="w-5 h-5" />
@@ -90,14 +96,14 @@ export default function LandingPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </SignInButton>
-          </SignedOut>
-          <SignedIn>
+          )}
+          {isSignedIn && (
             <Link href="/dashboard" className="group relative inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white bg-indigo-600 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-all hover:bg-indigo-500 hover:scale-105">
               <Wand2 className="w-5 h-5" />
               Go to Dashboard
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </SignedIn>
+          )}
         </motion.div>
       </main>
     </div>
