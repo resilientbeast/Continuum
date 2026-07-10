@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Install all dependencies together with the CPU index URL to prevent 
 # pip from pulling incompatible ABI versions of torch/torchaudio
 RUN pip3 install --no-cache-dir \
-    torch torchaudio \
+    torch torchaudio torchcodec \
     demucs \
     scenedetect[opencv] \
     openai \
