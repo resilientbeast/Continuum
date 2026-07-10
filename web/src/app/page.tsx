@@ -26,12 +26,12 @@ export default function LandingPage() {
           <div className="flex items-center gap-4">
             {(!isLoaded || !isSignedIn) && (
               <>
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" forceRedirectUrl="/dashboard" signUpForceRedirectUrl="/dashboard">
                   <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
                     Sign In
                   </button>
                 </SignInButton>
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" forceRedirectUrl="/dashboard" signUpForceRedirectUrl="/dashboard">
                   <button className="px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all">
                     Get Started
                   </button>
@@ -109,7 +109,7 @@ export default function LandingPage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             {(!isLoaded || !isSignedIn) && (
-              <SignInButton mode="modal">
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard" signUpForceRedirectUrl="/dashboard">
                 <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] transition-all hover:scale-105 hover:bg-indigo-500 w-full sm:w-auto">
                   <Wand2 className="w-5 h-5" />
                   Start Mastering Free

@@ -25,7 +25,9 @@ RUN pip3 install --no-cache-dir \
     gradio \
     fastapi \
     uvicorn \
-    python-multipart
+    python-multipart \
+    pyjwt \
+    cryptography
 COPY . /app
 # We now run the FastAPI app by default
 EXPOSE 8000
