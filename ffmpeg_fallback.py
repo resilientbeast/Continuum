@@ -12,12 +12,15 @@ rewrite.
 
 Requires: ffmpeg on PATH, soundfile, numpy.
 
-Known simplification (say this explicitly in your README, don't hide
-it): plain 5.1 has no height layer and no diffuse/bed concept, so:
-  - "overhead" folds down to front center (no true height channel here -
-    that's exactly the gap true object-based rendering closes)
-  - "bed_full" is split evenly across FL/FC/FR at reduced gain as a
-    crude stand-in for "everywhere"
+# Known simplification (say this explicitly in your README, don't hide
+# it): the fallback path has no per-scene dynamic panning. It uses static 
+# routing for the full runtime, always, picking the majority-voted channel 
+# for each stem. Furthermore, plain 5.1 has no height layer and no diffuse 
+# concept, so:
+#   - "overhead" folds down to front center (no true height channel here -
+#     that's exactly the gap true object-based rendering closes)
+#   - "bed_full" is split evenly across FL/FC/FR at reduced gain as a
+#     crude stand-in for "everywhere"
 """
 
 import subprocess
@@ -105,10 +108,10 @@ def render_5_1_fallback(scene_results, stem_audio_paths, scene_durations,
             sf.write(str(path), audio, sample_rate, subtype="PCM_16")
             stem_wav_paths[name] = path
 
-        # For a stem whose channel label changes across scenes (rare, but
-        # possible if the agent deliberately breaks coherence), route it
-        # using whichever channel it used most often - a simplification
-        # that's fine for the fallback path but worth noting in the README.
+        # Static routing for the full runtime, always. We route each stem
+        # using whichever channel it used most often across all scenes. 
+        # This simplification means the fallback path cannot express legitimate 
+        # per-scene dynamic panning (unlike the ADM/EAR path).
         stem_primary_channel = {}
         for name, per_scene in stem_channel_per_scene.items():
             labels = list(per_scene.values())

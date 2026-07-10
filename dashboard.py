@@ -125,8 +125,8 @@ def build_app(output_dir, audio_dir):
         gr.Markdown(
             "# Spatial Audio Coherence Agent — Results\n"
             "Cross-scene spatial placement for AI-generated film audio, "
-            "with a placement-reasoning agent self-hosted via vLLM on an "
-            "AMD MI300X. This viewer browses already-computed pipeline "
+            "with a placement-reasoning agent powered by Fireworks AI. "
+            "This viewer browses already-computed pipeline "
             "output — it does not trigger live inference or rendering."
         )
         gr.Markdown(coherence_summary)

@@ -37,6 +37,9 @@ RUN pip3 install --no-cache-dir \
 
 COPY . /app
 
+# Pre-download spaudiopy HRIR FABIAN dataset to avoid stalling the first user request
+RUN python3 -c "from binaural_renderer import get_hrirs; get_hrirs(prefer_real=True)"
+
 EXPOSE 8000
 
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
