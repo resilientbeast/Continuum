@@ -5,10 +5,13 @@ import subprocess
 import threading
 import sqlite3
 import jwt
+import boto3
+from botocore.exceptions import NoCredentialsError, ClientError
 from pathlib import Path
-from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, Header
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI(title="Continuum Audio Pipeline API")
 
@@ -24,25 +27,31 @@ OUTPUT_DIR = Path("api_output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 DB_PATH = "jobs.db"
 
+AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
+AWS_S3_BUCKET_NAME = os.environ.get("AWS_S3_BUCKET_NAME")
+
+# Boto3 uses AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY automatically from env
+s3_client = boto3.client('s3', region_name=AWS_REGION)
+
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS jobs
-                 (id TEXT PRIMARY KEY, user_id TEXT, filename TEXT, status TEXT, message TEXT, result_path TEXT)''')
+                 (id TEXT PRIMARY KEY, user_id TEXT, filename TEXT, status TEXT, message TEXT, s3_key TEXT, result_s3_key TEXT)''')
     conn.commit()
     conn.close()
 
 init_db()
 
-def update_job(job_id, status=None, message=None, result_path=None):
+def update_job(job_id, status=None, message=None, result_s3_key=None):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     if status:
         c.execute("UPDATE jobs SET status=? WHERE id=?", (status, job_id))
     if message:
         c.execute("UPDATE jobs SET message=? WHERE id=?", (message, job_id))
-    if result_path:
-        c.execute("UPDATE jobs SET result_path=? WHERE id=?", (result_path, job_id))
+    if result_s3_key:
+        c.execute("UPDATE jobs SET result_s3_key=? WHERE id=?", (result_s3_key, job_id))
     conn.commit()
     conn.close()
 
@@ -51,19 +60,44 @@ def get_current_user(authorization: str = Header(None)):
         raise HTTPException(status_code=401, detail="Missing or invalid Authorization header")
     token = authorization.split(" ")[1]
     try:
-        # For ease of hackathon deployment, we decode without strict signature verification.
-        # In production, fetch the Clerk JWKS keys and verify the signature.
         decoded = jwt.decode(token, options={"verify_signature": False})
         return decoded.get("sub")
     except Exception as e:
         raise HTTPException(status_code=401, detail="Invalid token")
 
-def run_pipeline_task(job_id: str, video_path: str):
+@app.get("/s3/upload-url")
+async def get_s3_upload_url(filename: str, user_id: str = Depends(get_current_user)):
+    if not AWS_S3_BUCKET_NAME:
+        raise HTTPException(status_code=500, detail="S3 is not configured on the backend.")
+        
+    s3_key = f"uploads/{user_id}/{uuid.uuid4()}_{filename}"
+    
+    try:
+        response = s3_client.generate_presigned_post(
+            Bucket=AWS_S3_BUCKET_NAME,
+            Key=s3_key,
+            ExpiresIn=3600 # 1 hour
+        )
+        return {"url": response["url"], "fields": response["fields"], "s3_key": s3_key}
+    except ClientError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+class JobCreate(BaseModel):
+    filename: str
+    s3_key: str
+
+def run_pipeline_task(job_id: str, s3_key: str):
     job_dir = OUTPUT_DIR / job_id
     job_dir.mkdir(exist_ok=True)
+    video_path = job_dir / "input_video.mp4"
+    
     try:
-        update_job(job_id, status="processing", message="Initializing pipeline...")
+        update_job(job_id, status="processing", message="Downloading video from S3...")
         
+        # Download from S3
+        s3_client.download_file(AWS_S3_BUCKET_NAME, s3_key, str(video_path))
+        
+        update_job(job_id, message="Initializing pipeline...")
         cmd = [
             "python3", "main.py",
             "--input-video", str(video_path),
@@ -74,7 +108,6 @@ def run_pipeline_task(job_id: str, video_path: str):
         env = os.environ.copy()
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
         
-        # Read stdout line by line to get real-time progress
         for line in iter(process.stdout.readline, ''):
             line = line.strip()
             if line:
@@ -93,31 +126,34 @@ def run_pipeline_task(job_id: str, video_path: str):
             result_file = job_dir / "film_fallback_5.1.wav"
             
         if result_file.exists():
-            update_job(job_id, status="completed", message="Mastering complete!", result_path=str(result_file))
+            update_job(job_id, message="Uploading mastered audio back to S3...")
+            result_s3_key = f"results/{job_id}/mastered.wav"
+            s3_client.upload_file(str(result_file), AWS_S3_BUCKET_NAME, result_s3_key)
+            
+            update_job(job_id, status="completed", message="Mastering complete!", result_s3_key=result_s3_key)
         else:
             update_job(job_id, status="failed", message="Pipeline completed but no output file found.")
             
     except Exception as e:
         update_job(job_id, status="failed", message=f"Error: {str(e)}")
+    finally:
+        # Clean up local temporary files
+        if job_dir.exists():
+            shutil.rmtree(job_dir, ignore_errors=True)
 
-@app.post("/upload")
-async def upload_video(file: UploadFile = File(...), user_id: str = Depends(get_current_user)):
+@app.post("/job")
+async def create_job(job_req: JobCreate, user_id: str = Depends(get_current_user)):
     job_id = str(uuid.uuid4())
-    job_dir = OUTPUT_DIR / job_id
-    job_dir.mkdir(exist_ok=True)
     
-    video_path = job_dir / file.filename
-    with open(video_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-        
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("INSERT INTO jobs (id, user_id, filename, status, message) VALUES (?, ?, ?, ?, ?)",
-              (job_id, user_id, file.filename, "queued", "Waiting in queue..."))
+    # We replaced result_path with s3_key and result_s3_key in DB
+    c.execute("INSERT INTO jobs (id, user_id, filename, status, message, s3_key) VALUES (?, ?, ?, ?, ?, ?)",
+              (job_id, user_id, job_req.filename, "queued", "Waiting in queue...", job_req.s3_key))
     conn.commit()
     conn.close()
     
-    thread = threading.Thread(target=run_pipeline_task, args=(job_id, str(video_path)))
+    thread = threading.Thread(target=run_pipeline_task, args=(job_id, job_req.s3_key))
     thread.start()
     
     return {"job_id": job_id, "status": "queued"}
@@ -149,7 +185,7 @@ async def get_history(user_id: str = Depends(get_current_user)):
 async def download_result(job_id: str):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("SELECT status, result_path FROM jobs WHERE id=?", (job_id,))
+    c.execute("SELECT status, result_s3_key FROM jobs WHERE id=?", (job_id,))
     row = c.fetchone()
     conn.close()
 
@@ -159,11 +195,20 @@ async def download_result(job_id: str):
     if row[0] != "completed":
         return JSONResponse(status_code=400, content={"error": "Job not completed"})
         
-    result_path = row[1]
-    if not result_path or not os.path.exists(result_path):
-        return JSONResponse(status_code=404, content={"error": "File not found"})
+    result_s3_key = row[1]
+    if not result_s3_key:
+        return JSONResponse(status_code=404, content={"error": "S3 Key not found"})
         
-    return FileResponse(result_path, media_type="audio/wav", filename="processed_audio.wav")
+    try:
+        # Generate a pre-signed URL for downloading the result
+        url = s3_client.generate_presigned_url(
+            'get_object',
+            Params={'Bucket': AWS_S3_BUCKET_NAME, 'Key': result_s3_key},
+            ExpiresIn=3600
+        )
+        return RedirectResponse(url)
+    except ClientError as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 if __name__ == "__main__":
     import uvicorn

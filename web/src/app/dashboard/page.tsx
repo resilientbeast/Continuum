@@ -117,24 +117,60 @@ export default function Dashboard() {
     try {
       setStatus("uploading");
       setError(null);
+      setProgressMessage("Requesting secure upload URL...");
       
       const token = await getToken();
       if (!token) throw new Error("Authentication failed");
       
-      const formData = new FormData();
-      formData.append("file", file);
-      
-      const res = await fetch(`${API_URL}/upload`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
+      // 1. Get pre-signed URL from our backend
+      const presignRes = await fetch(`${API_URL}/s3/upload-url?filename=${encodeURIComponent(file.name)}`, {
+        headers: { Authorization: `Bearer ${token}` }
       });
       
-      if (!res.ok) {
-        throw new Error("Failed to upload video");
+      if (!presignRes.ok) {
+        throw new Error("Failed to get S3 upload URL");
       }
       
-      const data = await res.json();
+      const presignData = await presignRes.json();
+      
+      setProgressMessage("Uploading to AWS S3...");
+      
+      // 2. Upload directly to S3
+      const s3FormData = new FormData();
+      Object.entries(presignData.fields).forEach(([k, v]) => {
+        s3FormData.append(k, v as string);
+      });
+      s3FormData.append("file", file);
+      
+      const uploadRes = await fetch(presignData.url, {
+        method: "POST",
+        body: s3FormData,
+      });
+      
+      if (!uploadRes.ok) {
+        throw new Error("Failed to upload file to S3");
+      }
+      
+      setProgressMessage("Starting backend job...");
+      
+      // 3. Tell backend to start processing
+      const jobRes = await fetch(`${API_URL}/job`, {
+        method: "POST",
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          filename: file.name,
+          s3_key: presignData.s3_key
+        }),
+      });
+      
+      if (!jobRes.ok) {
+        throw new Error("Failed to start job");
+      }
+      
+      const data = await jobRes.json();
       setJobId(data.job_id);
       setStatus("queued");
       setProgressMessage("Waiting in queue...");

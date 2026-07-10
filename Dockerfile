@@ -27,7 +27,8 @@ RUN pip3 install --no-cache-dir \
     uvicorn \
     python-multipart \
     pyjwt \
-    cryptography
+    cryptography \
+    boto3
 COPY . /app
 # We now run the FastAPI app by default
 EXPOSE 8000
