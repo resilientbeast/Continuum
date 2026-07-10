@@ -3,8 +3,8 @@ caption_extractor.py
 
 Automatic replacement for hand-authored visual_caption. Extracts a
 representative keyframe from each scene's source video clip via ffmpeg,
-then captions it using a self-hosted vision-language model (e.g.
-Qwen2.5-VL-7B-Instruct) served through vLLM on the same OpenAI-compatible
+then captions it using a serverless vision-language model (e.g.
+Llama 3.2 Vision) served through Fireworks on the same OpenAI-compatible
 API surface as placement_agent_harness.py's reasoning model.
 
 Requires: ffmpeg + ffprobe on PATH (already in the project Dockerfile).
@@ -12,7 +12,7 @@ Requires: ffmpeg + ffprobe on PATH (already in the project Dockerfile).
 Env vars:
   VISION_LLM_BASE_URL   https://api.fireworks.ai/inference/v1
   VISION_LLM_API_KEY    Your Fireworks API key
-  VISION_LLM_MODEL      default: accounts/fireworks/models/firellava-13b
+  VISION_LLM_MODEL      default: accounts/fireworks/models/llama-v3p2-11b-vision-instruct
 """
 
 import base64
@@ -22,7 +22,7 @@ from pathlib import Path
 
 from openai import OpenAI
 
-VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "accounts/fireworks/models/firellava-13b")
+VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "accounts/fireworks/models/llama-v3p2-11b-vision-instruct")
 
 CAPTION_SYSTEM_PROMPT = """You are describing a single film frame for a spatial
 audio placement agent that has never seen the footage. Describe only what is

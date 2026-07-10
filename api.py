@@ -29,9 +29,14 @@ DB_PATH = "jobs.db"
 
 AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
 AWS_S3_BUCKET_NAME = os.environ.get("AWS_S3_BUCKET_NAME")
+CLERK_ISSUER = os.environ.get("CLERK_ISSUER") # e.g. https://clerk.yourdomain.com
 
 # Boto3 uses AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY automatically from env
 s3_client = boto3.client('s3', region_name=AWS_REGION)
+
+jwks_client = None
+if CLERK_ISSUER:
+    jwks_client = jwt.PyJWKClient(f"{CLERK_ISSUER}/.well-known/jwks.json")
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -60,10 +65,20 @@ def get_current_user(authorization: str = Header(None)):
         raise HTTPException(status_code=401, detail="Missing or invalid Authorization header")
     token = authorization.split(" ")[1]
     try:
-        decoded = jwt.decode(token, options={"verify_signature": False})
+        if jwks_client:
+            signing_key = jwks_client.get_signing_key_from_jwt(token)
+            decoded = jwt.decode(
+                token,
+                signing_key.key,
+                algorithms=["RS256"],
+                options={"verify_signature": True}
+            )
+        else:
+            print("WARNING: CLERK_ISSUER not set, skipping JWT signature verification")
+            decoded = jwt.decode(token, options={"verify_signature": False})
         return decoded.get("sub")
     except Exception as e:
-        raise HTTPException(status_code=401, detail="Invalid token")
+        raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
 
 @app.get("/s3/upload-url")
 async def get_s3_upload_url(filename: str, user_id: str = Depends(get_current_user)):
@@ -76,6 +91,9 @@ async def get_s3_upload_url(filename: str, user_id: str = Depends(get_current_us
         response = s3_client.generate_presigned_post(
             Bucket=AWS_S3_BUCKET_NAME,
             Key=s3_key,
+            Conditions=[
+                ["content-length-range", 1, 524288000] # 500MB max limit
+            ],
             ExpiresIn=3600 # 1 hour
         )
         return {"url": response["url"], "fields": response["fields"], "s3_key": s3_key}
@@ -131,6 +149,16 @@ def run_pipeline_task(job_id: str, s3_key: str):
             result_s3_key = f"results/{job_id}/mastered.wav"
             s3_client.upload_file(str(result_file), AWS_S3_BUCKET_NAME, result_s3_key)
             
+            # Preserve evidence of coherence for judging walkthroughs
+            artifacts = ["film.adm.wav", "coherence_memory.json", "scenes_with_features.json", "stem_manifest.json", "scenes.json"]
+            for p in job_dir.glob("scene_*_placements.json"):
+                artifacts.append(p.name)
+            
+            for artifact in artifacts:
+                apath = job_dir / artifact
+                if apath.exists():
+                    s3_client.upload_file(str(apath), AWS_S3_BUCKET_NAME, f"results/{job_id}/{artifact}")
+            
             update_job(job_id, status="completed", message="Mastering complete!", result_s3_key=result_s3_key)
         else:
             update_job(job_id, status="failed", message="Pipeline completed but no output file found.")
@@ -183,10 +211,10 @@ async def get_history(user_id: str = Depends(get_current_user)):
     return [dict(row) for row in rows]
 
 @app.get("/download/{job_id}")
-async def download_result(job_id: str):
+async def download_result(job_id: str, user_id: str = Depends(get_current_user)):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("SELECT status, result_s3_key FROM jobs WHERE id=?", (job_id,))
+    c.execute("SELECT status, result_s3_key FROM jobs WHERE id=? AND user_id=?", (job_id, user_id))
     row = c.fetchone()
     conn.close()
 
