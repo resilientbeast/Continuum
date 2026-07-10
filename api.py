@@ -116,7 +116,7 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
         # Download from S3
         s3_client.download_file(AWS_S3_BUCKET_NAME, s3_key, str(video_path))
         
-        update_job(job_id, message="Initializing pipeline...")
+        update_job(job_id, message="Running pipeline...")
         if target_format == "binaural":
             stages = "segment,separate,features,agent,render,binaural"
             pipeline_target = "5.1"
@@ -133,7 +133,8 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
         ]
         
         env = os.environ.copy()
-        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
+        env["PYTHONUNBUFFERED"] = "1"
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=env)
         
         timer = threading.Timer(3600.0, process.kill)
         timer.start()
