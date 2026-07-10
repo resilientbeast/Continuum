@@ -6,17 +6,11 @@ Self-hosted on AMD MI300X via vLLM (OpenAI-compatible server) - this is what
 makes the AMD-compute claim for Track 3 credible and documentable, per the
 hackathon's automated pre-screening requirement.
 
-Point this at your vLLM server with env vars, no code change needed:
+Point this at the Fireworks API using env vars:
 
-    export LLM_BASE_URL="http://localhost:8000/v1"
-    export LLM_API_KEY="not-needed-for-local-vllm"   # vLLM ignores this but
-                                                       # the OpenAI SDK requires
-                                                       # a non-empty string
-    export LLM_MODEL="Qwen/Qwen2.5-32B-Instruct"      # must match --model
-                                                       # exactly as served
-
-Start the server on the notebook first, e.g.:
-    vllm serve Qwen/Qwen2.5-32B-Instruct --port 8000 --dtype bfloat16
+    export LLM_BASE_URL="https://api.fireworks.ai/inference/v1"
+    export LLM_API_KEY="your-fireworks-api-key"
+    export LLM_MODEL="accounts/fireworks/models/gemma-2-9b-it"
 """
 
 import json
@@ -27,17 +21,17 @@ from pathlib import Path
 from openai import OpenAI, APIConnectionError, APIStatusError
 
 client = OpenAI(
-    api_key=os.environ.get("LLM_API_KEY", "not-needed-for-local-vllm"),
-    base_url=os.environ.get("LLM_BASE_URL", "http://localhost:8000/v1"),
+    api_key=os.environ.get("LLM_API_KEY", "EMPTY"),
+    base_url=os.environ.get("LLM_BASE_URL", "https://api.fireworks.ai/inference/v1"),
 )
-MODEL = os.environ.get("LLM_MODEL", "Qwen/Qwen2.5-32B-Instruct")
+MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/gemma-2-9b-it")
 
 MEMORY_PATH = Path("output/coherence_memory.json")
 
 MAX_RETRIES = 3
 RETRY_BACKOFF_SECONDS = 2
 
-SYSTEM_PROMPT = """You are a spatial audio placement agent for cinematic Atmos/5.1 mixing.
+SYSTEM_PROMPT = """You are a spatial audio placement agent for cinematic Continuum/5.1 mixing.
 For each scene, decide channel/object placement for each audio stem provided.
 Always check the coherence memory first - if a stem's audio signature matches a
 previously logged recurring element (a motif, ambient bed, or character voice),

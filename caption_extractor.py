@@ -7,14 +7,12 @@ then captions it using a self-hosted vision-language model (e.g.
 Qwen2.5-VL-7B-Instruct) served through vLLM on the same OpenAI-compatible
 API surface as placement_agent_harness.py's reasoning model.
 
-Requires: ffmpeg + ffprobe on PATH (already in the project Dockerfile),
-a running `vllm serve <VL model> --port <VISION_PORT>` instance.
+Requires: ffmpeg + ffprobe on PATH (already in the project Dockerfile).
 
-Env vars (separate from the main LLM_* vars, since this is a different
-model on a different port):
-  VISION_LLM_BASE_URL   e.g. http://localhost:8001/v1
-  VISION_LLM_API_KEY    "EMPTY" is fine for a local vLLM server
-  VISION_LLM_MODEL      default: Qwen/Qwen2.5-VL-7B-Instruct
+Env vars:
+  VISION_LLM_BASE_URL   https://api.fireworks.ai/inference/v1
+  VISION_LLM_API_KEY    Your Fireworks API key
+  VISION_LLM_MODEL      default: accounts/fireworks/models/firellava-13b
 """
 
 import base64
@@ -24,7 +22,7 @@ from pathlib import Path
 
 from openai import OpenAI
 
-VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "Qwen/Qwen2.5-VL-7B-Instruct")
+VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "accounts/fireworks/models/firellava-13b")
 
 CAPTION_SYSTEM_PROMPT = """You are describing a single film frame for a spatial
 audio placement agent that has never seen the footage. Describe only what is

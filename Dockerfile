@@ -22,21 +22,11 @@ RUN pip3 install --no-cache-dir \
     soundfile \
     ear \
     spaudiopy \
-    gradio
+    gradio \
+    fastapi \
+    uvicorn \
+    python-multipart
 COPY . /app
-# NOTE: no HSA_OVERRIDE_GFX_VERSION or PYTORCH_ROCM_ARCH here on purpose.
-# HSA_OVERRIDE_GFX_VERSION exists to spoof an UNSUPPORTED consumer GPU as
-# a supported ISA - MI300X (gfx942) is already a first-class supported
-# ROCm target, so setting this can misroute kernels
-# (hipErrorNoBinaryForGPU) or cause perf regressions. PYTORCH_ROCM_ARCH is
-# a build-from-source flag with no effect on the prebuilt pip wheel above.
-# If you ever build PyTorch from source instead, that's the only case
-# where PYTORCH_ROCM_ARCH=gfx942 belongs back in this file.
-#
-# ENTRYPOINT, not CMD: main.py requires --input-video and supports --only
-# for resumable per-stage runs (see main.py's own docstring, which
-# recommends running `--only segment,separate` first). A bare
-# `CMD ["python3", "main.py"]` would exit immediately on argparse's
-# required-argument error. Pass args after the image name, e.g.:
-#   docker run ... atmos-coherence-agent --input-video scenes/source_film.mp4 --output-dir output
-ENTRYPOINT ["python3", "main.py"]
+# We now run the FastAPI app by default
+EXPOSE 8000
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
