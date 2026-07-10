@@ -33,6 +33,7 @@ RUN pip3 install --no-cache-dir \
     pyjwt \
     cryptography \
     boto3 \
+    matplotlib \
     --extra-index-url https://download.pytorch.org/whl/cpu
 
 # Pre-download spaudiopy HRIR FABIAN dataset to avoid stalling the first user request

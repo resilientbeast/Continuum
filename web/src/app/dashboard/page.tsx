@@ -11,6 +11,7 @@ type Job = {
   filename: string;
   status: string;
   message: string;
+  plots?: string[];
 };
 
 export default function Dashboard() {
@@ -22,6 +23,7 @@ export default function Dashboard() {
   const [status, setStatus] = useState<"idle" | "uploading" | "queued" | "processing" | "completed" | "failed">("idle");
   const [progressMessage, setProgressMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [plots, setPlots] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [targetFormat, setTargetFormat] = useState<"binaural" | "5.1" | "5.1.4" | "7.1.4">("binaural");
   
@@ -68,6 +70,7 @@ export default function Dashboard() {
             setProgressMessage(data.message);
             if (data.status === "completed") {
               setStatus("completed");
+              setPlots(data.plots || []);
               fetchHistory(); // refresh history when done
             } else if (data.status === "failed") {
               setStatus("failed");
@@ -118,6 +121,7 @@ export default function Dashboard() {
     try {
       setStatus("uploading");
       setError(null);
+      setPlots([]);
       setProgressMessage("Requesting secure upload URL...");
       
       const token = await getToken();
@@ -193,6 +197,7 @@ export default function Dashboard() {
     setStatus("idle");
     setError(null);
     setProgressMessage(null);
+    setPlots([]);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
   
@@ -200,6 +205,7 @@ export default function Dashboard() {
     setJobId(job.id);
     setStatus(job.status as any);
     setProgressMessage(job.message);
+    setPlots(job.plots || []);
     setFile(new File([], job.filename)); // fake file for UI
   };
 
@@ -457,6 +463,19 @@ export default function Dashboard() {
                         Download Mix
                       </button>
                     </div>
+
+                    {plots.length > 0 && (
+                      <div className="mt-12 w-full border-t border-white/10 pt-8">
+                        <h4 className="text-xl font-bold text-white mb-6 text-center">Pipeline Visualizations</h4>
+                        <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl">
+                          {plots.map((url, i) => (
+                            <div key={i} className="bg-black/40 border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-4 flex items-center justify-center">
+                              <img src={url} alt={`Pipeline visualization ${i}`} className="w-full h-auto object-contain rounded-lg" />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </motion.div>
                 )}
 

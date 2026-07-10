@@ -157,6 +157,12 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
             update_job(job_id, status="failed", message="Pipeline failed. Check logs.")
             return
 
+        update_job(job_id, message="Generating pipeline visualizations...")
+        try:
+            subprocess.run(["python3", "visualizer.py", "--dir", str(job_dir)], check=True, capture_output=True)
+        except Exception as e:
+            print(f"[PIPELINE {job_id}] WARNING: Visualizer failed: {e}")
+
         if target_format == "binaural":
             result_file = job_dir / "film_binaural.wav"
         else:
@@ -173,6 +179,8 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
             # Preserve evidence of coherence for judging walkthroughs
             artifacts = ["film.adm.wav", "coherence_memory.json", "scenes_with_features.json", "stem_manifest.json", "scenes.json"]
             for p in job_dir.glob("scene_*_placements.json"):
+                artifacts.append(p.name)
+            for p in job_dir.glob("*.png"):
                 artifacts.append(p.name)
             
             for artifact in artifacts:
@@ -225,8 +233,16 @@ async def get_status(job_id: str, user_id: str = Depends(get_current_user)):
     
     if not row:
         return JSONResponse(status_code=404, content={"error": "Job not found"})
-        
-    return {"status": row[0], "message": row[1]}
+    plots = []
+    if row[0] == "completed":
+        for plot_name in ["coherence_plot.png", "trajectory_plot.png", "hrtf_plot.png"]:
+            try:
+                url = s3_client.generate_presigned_url('get_object', Params={'Bucket': AWS_S3_BUCKET_NAME, 'Key': f"results/{job_id}/{plot_name}"}, ExpiresIn=3600)
+                plots.append(url)
+            except Exception:
+                pass
+
+    return {"status": row[0], "message": row[1], "plots": plots}
 
 @app.get("/history")
 async def get_history(user_id: str = Depends(get_current_user)):
@@ -236,7 +252,22 @@ async def get_history(user_id: str = Depends(get_current_user)):
     c.execute("SELECT id, filename, status, message FROM jobs WHERE user_id=? ORDER BY rowid DESC", (user_id,))
     rows = c.fetchall()
     conn.close()
-    return [dict(row) for row in rows]
+    
+    res = []
+    for row in rows:
+        d = dict(row)
+        plots = []
+        if d["status"] == "completed":
+            for plot_name in ["coherence_plot.png", "trajectory_plot.png", "hrtf_plot.png"]:
+                try:
+                    url = s3_client.generate_presigned_url('get_object', Params={'Bucket': AWS_S3_BUCKET_NAME, 'Key': f"results/{d['id']}/{plot_name}"}, ExpiresIn=3600)
+                    plots.append(url)
+                except Exception:
+                    pass
+        d["plots"] = plots
+        res.append(d)
+        
+    return res
 
 @app.get("/download/{job_id}")
 async def download_result(job_id: str, user_id: str = Depends(get_current_user)):
