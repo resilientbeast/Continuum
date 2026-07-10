@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     git \
     libgl1 \
     libglib2.0-0 \
+    portaudio19-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install CPU-only PyTorch first to keep image size small and prevent CUDA/ROCm bloat
