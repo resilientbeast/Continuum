@@ -50,7 +50,7 @@ This is directly verifiable, not just asserted — `check_coherence()` walks eve
 
 ## Architecture and a note on compute
 
-The original build targeted a self-hosted reasoning model via vLLM on an AMD MI300X, provisioned through the hackathon's AMD Developer Cloud notebook environment — this was the intended way to satisfy Track 3's "Use of AMD Platforms" criterion directly, rather than routing through a third-party hosted API. Partway through the build, GPU capacity in that notebook environment became unavailable. Rather than stall the project on a resource outside our control, we moved the placement-reasoning agent and vision-language captioning to Fireworks-hosted models (Gemma and FireLLaVA), which let the project ship as a complete, deployed, end-to-end product rather than a partial pipeline blocked on GPU access.
+The original build targeted a self-hosted reasoning model via vLLM on an AMD MI300X, provisioned through the hackathon's AMD Developer Cloud notebook environment — this was the intended way to satisfy Track 3's "Use of AMD Platforms" criterion directly, rather than routing through a third-party hosted API. Partway through the build, GPU capacity in that notebook environment became unavailable. Rather than stall the project on a resource outside our control, we moved the placement-reasoning agent and vision-language captioning to Fireworks-hosted models (Gemma and Llama 3.2 Vision), which let the project ship as a complete, deployed, end-to-end product rather than a partial pipeline blocked on GPU access.
 
 The coherence-memory mechanism, the ADM/EAR rendering path, and the binaural stage are all unaffected by this — none of them ever depended on GPU compute; EAR and the binaural convolution are both CPU-bound.
 
