@@ -34,9 +34,12 @@ CLERK_ISSUER = os.environ.get("CLERK_ISSUER") # e.g. https://clerk.yourdomain.co
 # Boto3 uses AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY automatically from env
 s3_client = boto3.client('s3', region_name=AWS_REGION)
 
-jwks_client = None
-if CLERK_ISSUER:
-    jwks_client = jwt.PyJWKClient(f"{CLERK_ISSUER}/.well-known/jwks.json")
+if not CLERK_ISSUER:
+    raise RuntimeError("CRITICAL: CLERK_ISSUER environment variable is not set. Refusing to start without authentication.")
+jwks_client = jwt.PyJWKClient(f"{CLERK_ISSUER}/.well-known/jwks.json")
+
+MAX_CONCURRENT_JOBS = int(os.environ.get("MAX_CONCURRENT_JOBS", "2"))
+job_semaphore = threading.Semaphore(MAX_CONCURRENT_JOBS)
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -65,17 +68,14 @@ def get_current_user(authorization: str = Header(None)):
         raise HTTPException(status_code=401, detail="Missing or invalid Authorization header")
     token = authorization.split(" ")[1]
     try:
-        if jwks_client:
-            signing_key = jwks_client.get_signing_key_from_jwt(token)
-            decoded = jwt.decode(
-                token,
-                signing_key.key,
-                algorithms=["RS256"],
-                options={"verify_signature": True}
-            )
-        else:
-            print("WARNING: CLERK_ISSUER not set, skipping JWT signature verification")
-            decoded = jwt.decode(token, options={"verify_signature": False})
+        signing_key = jwks_client.get_signing_key_from_jwt(token)
+        decoded = jwt.decode(
+            token,
+            signing_key.key,
+            algorithms=["RS256"],
+            issuer=CLERK_ISSUER,
+            options={"verify_signature": True, "verify_aud": False}
+        )
         return decoded.get("sub")
     except Exception as e:
         raise HTTPException(status_code=401, detail=f"Invalid token: {str(e)}")
@@ -135,15 +135,22 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
         env = os.environ.copy()
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
         
-        for line in iter(process.stdout.readline, ''):
-            line = line.strip()
-            if line:
-                print(f"[PIPELINE {job_id}] {line}", flush=True)
-                if any(k in line for k in ["Stage", "Starting", "Finished", "Agent", "extracted", "Scene", "Coherence", "WARNING"]):
-                    update_job(job_id, message=line)
-                
-        process.stdout.close()
-        return_code = process.wait()
+        timer = threading.Timer(3600.0, process.kill)
+        timer.start()
+        
+        try:
+            for line in iter(process.stdout.readline, ''):
+                line = line.strip()
+                if line:
+                    print(f"[PIPELINE {job_id}] {line}", flush=True)
+                    if any(k in line for k in ["Stage", "Starting", "Finished", "Agent", "extracted", "Scene", "Coherence", "WARNING"]):
+                        update_job(job_id, message=line)
+            
+            process.stdout.close()
+            return_code = process.wait()
+        finally:
+            timer.cancel()
+
         
         if return_code != 0:
             update_job(job_id, status="failed", message="Pipeline failed. Check logs.")
@@ -182,9 +189,16 @@ def run_pipeline_task(job_id: str, s3_key: str, target_format: str = "binaural")
         # Clean up local temporary files
         if job_dir.exists():
             shutil.rmtree(job_dir, ignore_errors=True)
+        job_semaphore.release()
 
 @app.post("/job")
 async def create_job(job_req: JobCreate, user_id: str = Depends(get_current_user)):
+    if not job_req.s3_key.startswith(f"uploads/{user_id}/"):
+        raise HTTPException(status_code=403, detail="Forbidden S3 key")
+
+    if not job_semaphore.acquire(blocking=False):
+        raise HTTPException(status_code=429, detail="Too many concurrent jobs. Please try again later.")
+
     job_id = str(uuid.uuid4())
     
     conn = sqlite3.connect(DB_PATH)

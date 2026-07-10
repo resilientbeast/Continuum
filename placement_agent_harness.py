@@ -22,9 +22,9 @@ client = OpenAI(
     api_key=os.environ.get("LLM_API_KEY", "EMPTY"),
     base_url=os.environ.get("LLM_BASE_URL", "https://api.fireworks.ai/inference/v1"),
 )
-MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/deepseek-v4-pro").strip('\"\' ')
+import re
 
-MEMORY_PATH = Path("output/coherence_memory.json")
+MODEL = os.environ.get("LLM_MODEL", "accounts/fireworks/models/deepseek-v4-pro").strip('\"\' ')
 
 MAX_RETRIES = 3
 RETRY_BACKOFF_SECONDS = 2
@@ -63,15 +63,17 @@ commentary before or after the JSON:
 """
 
 
-def load_memory():
-    if MEMORY_PATH.exists():
-        return json.loads(MEMORY_PATH.read_text())
+def load_memory(output_dir):
+    mem_path = output_dir / "coherence_memory.json"
+    if mem_path.exists():
+        return json.loads(mem_path.read_text())
     return {}
 
 
-def save_memory(memory):
-    MEMORY_PATH.parent.mkdir(exist_ok=True)
-    MEMORY_PATH.write_text(json.dumps(memory, indent=2))
+def save_memory(memory, output_dir):
+    mem_path = output_dir / "coherence_memory.json"
+    mem_path.parent.mkdir(exist_ok=True, parents=True)
+    mem_path.write_text(json.dumps(memory, indent=2))
 
 
 def build_user_prompt(scene_id, stems, visual_caption, memory):
@@ -85,29 +87,27 @@ def build_user_prompt(scene_id, stems, visual_caption, memory):
 
 def _extract_json(raw_text):
     """
-    Smaller instruct models are more likely than gpt-4o to wrap
-    JSON in markdown fences or add a stray sentence despite instructions.
-    response_format={"type": "json_object"} depends on the guided
-    decoding backend being enabled - don't assume it always applies, so
-    strip fences defensively before parsing rather than letting the whole
-    scene fail on an otherwise-valid response.
+    Extract JSON from potentially fenced model output.
     """
     text = raw_text.strip()
-    if text.startswith("```"):
-        text = text.strip("`")
-        if text.startswith("json"):
-            text = text[4:]
-        text = text.strip()
+    match = re.search(r'```(?:json)?\s*(.*?)\s*```', text, re.DOTALL)
+    if match:
+        text = match.group(1).strip()
     return json.loads(text)
 
 
-def process_scene(scene_id, stems, visual_caption=None):
+def process_scene(scene_id, stems, visual_caption=None, output_dir=None):
     """
     stems: list of dicts, e.g.
       [{"name": "dialogue", "energy": "medium", "has_transients": False},
        {"name": "alarm_sfx", "energy": "high", "has_transients": True}]
     """
-    memory = load_memory()
+    if output_dir is None:
+        output_dir = Path("output")
+    else:
+        output_dir = Path(output_dir)
+
+    memory = load_memory(output_dir)
     user_prompt = build_user_prompt(scene_id, stems, visual_caption, memory)
 
     last_error = None
@@ -141,25 +141,31 @@ def process_scene(scene_id, stems, visual_caption=None):
         )
 
     memory.update(result.get("memory_updates", {}))
-    save_memory(memory)
+    save_memory(memory, output_dir)
 
-    out_path = Path(f"output/scene_{scene_id}_placements.json")
+    out_path = output_dir / f"scene_{scene_id}_placements.json"
     out_path.write_text(json.dumps(result, indent=2))
 
     return result
 
 
-def run_pipeline(scenes):
+def run_pipeline(scenes, output_dir=None):
     """
     scenes: ordered list of dicts, e.g.
       [{"scene_id": 1, "stems": [...], "visual_caption": "..."}, ...]
     """
-    if MEMORY_PATH.exists():
-        MEMORY_PATH.unlink()  # fresh run
+    if output_dir is None:
+        output_dir = Path("output")
+    else:
+        output_dir = Path(output_dir)
+
+    mem_path = output_dir / "coherence_memory.json"
+    if mem_path.exists():
+        mem_path.unlink()  # fresh run
 
     all_results = []
     for scene in scenes:
-        result = process_scene(scene["scene_id"], scene["stems"], scene.get("visual_caption"))
+        result = process_scene(scene["scene_id"], scene["stems"], scene.get("visual_caption"), output_dir)
         all_results.append(result)
         print(f"Scene {scene['scene_id']}: {len(result['placements'])} placements logged")
 

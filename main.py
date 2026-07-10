@@ -159,10 +159,10 @@ def stage_features(video_path, scenes, stem_audio_paths, output_dir):
     return scenes_with_stems
 
 
-def stage_agent(scenes_with_stems):
+def stage_agent(scenes_with_stems, output_dir):
     """Runs the placement-reasoning agent."""
     print("Stage: Running placement-reasoning agent...")
-    results = run_pipeline(scenes_with_stems)
+    results = run_pipeline(scenes_with_stems, output_dir)
     coherence = check_coherence(results)
     print(f"Coherence: {coherence['coherent_total']}/{coherence['total_recurring_checks']} "
           f"recurring placements coherent "
@@ -211,7 +211,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input-video", required=True)
     parser.add_argument("--output-dir", default="output")
-    parser.add_argument("--target", default="5.1", choices=["5.1", "5.1.4"])
+    parser.add_argument("--target", default="5.1", choices=["5.1", "5.1.4", "7.1.4"])
     parser.add_argument("--only", default=None,
                          help=f"Comma-separated subset of stages to run: {STAGE_ORDER}. "
                               f"Default runs all of them in order.")
@@ -238,7 +238,7 @@ def main():
         json.loads((output_dir / "scenes_with_features.json").read_text())
 
     if "agent" in stages_to_run:
-        scene_results, coherence = stage_agent(scenes_with_stems)
+        scene_results, coherence = stage_agent(scenes_with_stems, output_dir)
     else:
         scene_results = [json.loads(p.read_text())
                           for p in sorted(output_dir.glob("scene_*_placements.json"))]
