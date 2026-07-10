@@ -188,11 +188,16 @@ def stage_render(scene_results, stem_audio_paths, scene_durations, output_dir, t
         return rendered_path, "adm"
     except Exception:
         print("ADM/EAR render failed - falling back to FFmpeg 5.1. Traceback:")
-        import sys
+        import sys, traceback
         traceback.print_exc(file=sys.stdout)
-        render_5_1_fallback(scene_results, stem_audio_paths, scene_durations, fallback_path)
-        print(f"FFmpeg fallback render succeeded: {fallback_path}")
-        return fallback_path, "fallback"
+        try:
+            render_5_1_fallback(scene_results, stem_audio_paths, scene_durations, fallback_path)
+            print(f"FFmpeg fallback render succeeded: {fallback_path}")
+            return fallback_path, "fallback"
+        except Exception:
+            print("CRITICAL: FFmpeg fallback render ALSO failed. Traceback:")
+            traceback.print_exc(file=sys.stdout)
+            raise RuntimeError("Both primary ADM and fallback 5.1 renderers failed.")
 
 
 def stage_binaural(rendered_path, target, output_dir):

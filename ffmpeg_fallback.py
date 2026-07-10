@@ -38,6 +38,8 @@ CHANNEL_ROUTE = {
     "right":          {"FR": 1.0},
     "surround_left":  {"BL": 1.0},
     "surround_right": {"BR": 1.0},
+    "rear_left":      {"BL": 1.0},  # 5.1 has no discrete rear pair, fold to surround bus
+    "rear_right":     {"BR": 1.0},
     "overhead":       {"FC": 1.0},                       # no height in 5.1
     "bed_full":       {"FL": 0.5, "FC": 0.7, "FR": 0.5},  # crude "everywhere"
 }
