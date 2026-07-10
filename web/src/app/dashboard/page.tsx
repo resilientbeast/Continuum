@@ -424,7 +424,12 @@ export default function Dashboard() {
                     </div>
                     <h3 className="text-3xl font-bold text-white mb-3 tracking-tight">Mastering Complete!</h3>
                     <p className="text-slate-400 mb-10 text-center max-w-md font-light text-lg">
-                      Your cinematic spatial audio mix has been rendered to a 5.1 binaural stereo file.
+                      Your cinematic spatial audio mix has been rendered to a {
+                        targetFormat === "binaural" ? "binaural stereo" :
+                        targetFormat === "5.1" ? "5.1 surround" :
+                        targetFormat === "5.1.4" ? "5.1.4 immersive" :
+                        "7.1.4 immersive"
+                      } file.
                     </p>
                     
                     <div className="flex gap-4">
