@@ -1,17 +1,19 @@
-FROM rocm/pytorch:latest
+FROM python:3.10-slim
+
 WORKDIR /app
+
+# Install system dependencies (ffmpeg is required for audio processing)
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     git \
     && rm -rf /var/lib/apt/lists/*
-# ROCm torch FIRST. `pip install demucs` also pulls a generic PyPI torch;
-# installing it after this line risks pip seeing torch as "already
-# satisfied" and silently skipping the ROCm build, leaving
-# torch.cuda.is_available() == False with no error. Installing ROCm torch
-# first, then demucs with --no-deps, avoids that failure mode entirely.
-RUN pip3 install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/rocm7.2
-RUN pip3 install --no-cache-dir --no-deps demucs
+
+# Install CPU-only PyTorch first to keep image size small and prevent CUDA/ROCm bloat
+RUN pip3 install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Install demucs and other dependencies
 RUN pip3 install --no-cache-dir \
+    demucs \
     scenedetect[opencv] \
     openai \
     anthropic \
@@ -29,7 +31,9 @@ RUN pip3 install --no-cache-dir \
     pyjwt \
     cryptography \
     boto3
+
 COPY . /app
-# We now run the FastAPI app by default
+
 EXPOSE 8000
+
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
