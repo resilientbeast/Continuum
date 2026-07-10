@@ -98,13 +98,15 @@ def build_adm_bwf(scene_results, stem_audio_paths, scene_durations,
         if sid not in scene_durations:
             raise ValueError(f"Missing scene_durations entry for scene {sid}")
 
-    # cumulative start time of each scene on the shared timeline
+    # cumulative start time of each scene
+    scene_durations_frac = {sid: Fraction(d).limit_denominator(48000) for sid, d in scene_durations.items()}
+
     scene_starts = {}
-    t = 0.0
+    current_start = Fraction(0)
     for sid in scene_ids:
-        scene_starts[sid] = t
-        t += scene_durations[sid]
-    total_duration = t
+        scene_starts[sid] = current_start
+        current_start += scene_durations_frac[sid]
+    total_duration = float(current_start)
 
     # discover every unique stem name across all scenes - each gets one
     # continuous ADM Object track
@@ -171,8 +173,8 @@ def build_adm_bwf(scene_results, stem_audio_paths, scene_durations,
                     gain = 0.0
 
                 blocks.append(AudioBlockFormatObjects(
-                    rtime=Fraction(scene_starts[sid]).limit_denominator(48000),
-                    duration=Fraction(scene_durations[sid]).limit_denominator(48000),
+                    rtime=scene_starts[sid],
+                    duration=scene_durations_frac[sid],
                     position={"azimuth": pos["azimuth"], "elevation": pos["elevation"], "distance": 1.0},
                     diffuse=pos["diffuse"],
                     gain=gain,
