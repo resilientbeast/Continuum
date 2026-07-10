@@ -22,7 +22,7 @@ from pathlib import Path
 
 from openai import OpenAI
 
-VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "accounts/fireworks/models/llama-v3p2-11b-vision-instruct")
+VISION_MODEL = os.environ.get("VISION_LLM_MODEL", "accounts/fireworks/models/qwen2p5-vl-32b-instruct").strip('\"\' ')
 
 CAPTION_SYSTEM_PROMPT = """You are describing a single film frame for a spatial
 audio placement agent that has never seen the footage. Describe only what is
