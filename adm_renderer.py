@@ -101,8 +101,12 @@ def build_adm_bwf(scene_results, stem_audio_paths, scene_durations,
         if sid not in scene_durations:
             raise ValueError(f"Missing scene_durations entry for scene {sid}")
 
-    # cumulative start time of each scene
-    scene_durations_frac = {sid: Fraction(d).limit_denominator(48000) for sid, d in scene_durations.items()}
+    # Force fixed 6-decimal precision (microsecond) to prevent 29-digit
+    # decimals in the ADM XML and ear-render warnings for repeating fractions.
+    scene_durations_frac = {
+        sid: Fraction(int(round(scene_durations[sid] * 1000000)), 1000000)
+        for sid in scene_ids
+    }
 
     scene_starts = {}
     current_start = Fraction(0)
