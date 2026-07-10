@@ -112,11 +112,11 @@ def stage_separate(video_path, scenes, output_dir):
             "-ss", str(scene["start"]), "-to", str(scene["end"]),
             "-vn", "-acodec", "pcm_s16le", "-ar", "48000",
             str(scene_wav),
-        ], check=True, capture_output=True, text=True)
+        ], check=True)
 
         subprocess.run([
             "demucs", "-n", DEMUCS_MODEL, "-o", str(demucs_out_dir), str(scene_wav),
-        ], check=True, capture_output=True, text=True)
+        ], check=True)
 
         track_name = scene_wav.stem  # e.g. "scene_1"
         stem_dir = demucs_out_dir / DEMUCS_MODEL / track_name
