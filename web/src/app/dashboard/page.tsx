@@ -153,11 +153,14 @@ export default function Dashboard() {
       
       setProgressMessage("Starting backend job...");
       
+      // Refresh token before starting job in case the S3 upload took longer than the token's lifespan
+      const freshToken = await getToken();
+
       // 3. Tell backend to start processing
       const jobRes = await fetch(`${API_URL}/job`, {
         method: "POST",
         headers: { 
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${freshToken}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
