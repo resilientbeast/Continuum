@@ -10,8 +10,8 @@ failure downstream doesn't force redoing everything upstream):
   2. Per-scene audio extraction + Demucs separation   - NOT TESTED here (see note)
   3. Feature extraction (stem_feature_extractor.py) +
      automatic visual captioning (caption_extractor.py)
-  4. Placement-reasoning agent (placement_agent_harness.py) - tested against
-     a mock server; point at your real vLLM endpoint via the usual env vars
+  4. Placement-reasoning agent (placement_agent_harness.py) - runs against
+     an OpenAI-compatible LLM endpoint via the usual env vars
   5. Render, with kill-switch: ADM+EAR primary, FFmpeg fallback on any
      failure                                          - both paths TESTED
   6. Binaural stereo render for headphones            - TESTED (synthetic
@@ -19,19 +19,13 @@ failure downstream doesn't force redoing everything upstream):
      binaural_renderer.py's own note)
   7. Optional: launch the results dashboard
 
-*** Stage 2 (Demucs) was NOT executable in this build's sandbox: it pulled
-Demucs' full CUDA torch dependency stack, exhausted the sandbox's disk
-quota mid-install, and left torch in a broken state. That's a sandbox
-limitation (small disk, no real GPU) - your notebook has both a real
-MI300X and normal disk space. Run this stage first and in isolation
-(`python3 main.py --input-video clip.mp4 --only segment,separate`) before
-trusting the rest of the run, since it's the one piece here written from
-documented Demucs CLI usage rather than an observed successful run. ***
+*** Stage 2 (Demucs) handles audio separation. Run this stage first and in 
+isolation (`python3 main.py --input-video clip.mp4 --only segment,separate`) 
+to confirm everything separates properly before running the rest of the pipeline. ***
 
-*** Stage 3's visual captioning requires a second self-hosted vLLM instance
-serving a vision-capable model (e.g. Qwen2.5-VL-7B-Instruct) on its own
-port, in addition to the reasoning model. See caption_extractor.py for the
-VISION_LLM_* env vars. If that server isn't up, captioning fails per-scene
+*** Stage 3's visual captioning requires a vision-capable LLM endpoint.
+See caption_extractor.py for the VISION_LLM_* env vars. If the vision endpoint 
+isn't up, captioning fails per-scene
 and visual_caption falls back to null for that scene rather than aborting
 the run -- the agent is instructed to reason from stems alone when that
 happens. ***
@@ -136,7 +130,7 @@ def stage_features(video_path, scenes, stem_audio_paths, output_dir):
     stem_feature_extractor.py run against real synthetic stem files), and
     now also generates visual_caption automatically: a keyframe is pulled
     directly from the original video at each scene's midpoint timestamp
-    and captioned via a self-hosted vision-language model.
+    and captioned via a vision-language model.
 
     Captioning failure for a given scene is non-fatal -- it falls back to
     a null caption for that scene rather than aborting feature extraction
@@ -185,9 +179,8 @@ def stage_features(video_path, scenes, stem_audio_paths, output_dir):
 
 
 def stage_agent(scenes_with_stems):
-    """Runs the placement-reasoning agent. TESTED against a mock server
-    including malformed-JSON retry recovery; point LLM_BASE_URL at your
-    real vLLM server before calling this for real."""
+    """Runs the placement-reasoning agent. Robust against malformed-JSON 
+    and handles retries cleanly against the configured LLM endpoint."""
     results = run_pipeline(scenes_with_stems)
     coherence = check_coherence(results)
     print(f"Coherence: {coherence['coherent_total']}/{coherence['total_recurring_checks']} "

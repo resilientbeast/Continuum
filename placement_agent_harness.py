@@ -2,9 +2,7 @@
 Scene-by-scene placement reasoning harness with cross-scene coherence memory.
 Feeds separated stems + scene metadata to an LLM agent, persists memory across scenes.
 
-Self-hosted on AMD MI300X via vLLM (OpenAI-compatible server) - this is what
-makes the AMD-compute claim for Track 3 credible and documentable, per the
-hackathon's automated pre-screening requirement.
+Runs against an OpenAI-compatible LLM endpoint.
 
 Point this at the Fireworks API using env vars:
 
@@ -87,9 +85,9 @@ def build_user_prompt(scene_id, stems, visual_caption, memory):
 
 def _extract_json(raw_text):
     """
-    Smaller self-hosted instruct models are more likely than gpt-4o to wrap
+    Smaller instruct models are more likely than gpt-4o to wrap
     JSON in markdown fences or add a stray sentence despite instructions.
-    response_format={"type": "json_object"} on vLLM depends on the guided
+    response_format={"type": "json_object"} depends on the guided
     decoding backend being enabled - don't assume it always applies, so
     strip fences defensively before parsing rather than letting the whole
     scene fail on an otherwise-valid response.
@@ -129,8 +127,8 @@ def process_scene(scene_id, stems, visual_caption=None):
         except (APIConnectionError, APIStatusError) as e:
             last_error = e
             print(f"Scene {scene_id}: attempt {attempt}/{MAX_RETRIES} - "
-                  f"vLLM server unreachable or errored ({e}). "
-                  f"Is `vllm serve ...` actually running?")
+                  f"LLM server unreachable or errored ({e}). "
+                  f"Check your API URL and key.")
         except json.JSONDecodeError as e:
             last_error = e
             print(f"Scene {scene_id}: attempt {attempt}/{MAX_RETRIES} - "
