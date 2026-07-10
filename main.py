@@ -188,7 +188,8 @@ def stage_render(scene_results, stem_audio_paths, scene_durations, output_dir, t
         return rendered_path, "adm"
     except Exception:
         print("ADM/EAR render failed - falling back to FFmpeg 5.1. Traceback:")
-        traceback.print_exc()
+        import sys
+        traceback.print_exc(file=sys.stdout)
         render_5_1_fallback(scene_results, stem_audio_paths, scene_durations, fallback_path)
         print(f"FFmpeg fallback render succeeded: {fallback_path}")
         return fallback_path, "fallback"
