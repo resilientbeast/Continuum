@@ -1,13 +1,60 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { ArrowRight, AudioWaveform, Sparkles, Wand2, Layers, BrainCircuit, Headphones, GitBranch, Link as LinkIcon, SplitSquareHorizontal, Activity, Eye, Network, Waves, Video, CheckCircle2, Speaker } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
+const ARCHITECTURE_STAGES = [
+  {
+    icon: SplitSquareHorizontal,
+    label: "1. Scene Segmentation",
+    title: "Scene Segmentation",
+    description: "The pipeline begins by analyzing the structural flow of the video. Using advanced threshold detection algorithms, the engine scans the entire video file to identify hard cuts and transitions, slicing the media into discrete, logical scenes.",
+    tech: "PySceneDetect, OpenCV"
+  },
+  {
+    icon: Waves,
+    label: "2. Stem Separation",
+    title: "Stem Separation",
+    description: "We extract the isolated sonic components from the original flat stereo mix. A state-of-the-art source separation model parses the audio track, splitting it cleanly into distinct stems: vocals, drums, bass, and other (ambient/effects).",
+    tech: "Demucs (PyTorch)"
+  },
+  {
+    icon: Eye,
+    label: "3. Context Captioning",
+    title: "Context Captioning",
+    description: "For every detected scene, we sample keyframes and pass them to a Vision-Language Model. The model generates highly detailed structural descriptions of the visual environment, identifying characters, settings, and camera angles.",
+    tech: "Fireworks AI, Vision LLMs (Kimi)"
+  },
+  {
+    icon: BrainCircuit,
+    label: "4. Placement Reasoning",
+    title: "Placement Reasoning",
+    description: "A large language model acts as the spatial audio director. It ingests the visual captions and the separated audio stems, then assigns strict 3D coordinates (azimuth and elevation) to each sound source based on on-screen context.",
+    tech: "Fireworks AI, LLMs (DeepSeek)"
+  },
+  {
+    icon: Network,
+    label: "5. Coherence Check",
+    title: "Coherence Check",
+    description: "Our novel memory engine. Before finalizing placements, the engine cross-references the current scene against a persistent spatial history. Recurring sonic elements (like an ambient bed or a character's voice) are locked to their established positions across cuts, preventing jarring speaker-jumping.",
+    tech: "Custom JSON Memory Engine"
+  },
+  {
+    icon: AudioWaveform,
+    label: "6. Spatial Render",
+    title: "Spatial Render",
+    description: "The assigned coordinates and stems are compiled into an ADM (Audio Definition Model) compliant XML manifest. This manifest is fed into a broadcast-standard renderer to generate the final multi-channel output formats.",
+    tech: "EBU ADM Renderer (EAR), FFmpeg (Formats: Binaural, 5.1, 5.1.4, 7.1.4)"
+  }
+];
+
 export default function LandingPage() {
   const { isLoaded, isSignedIn } = useUser();
+  const [activeStage, setActiveStage] = useState(0);
 
   return (
     <div className="relative min-h-screen bg-slate-950 selection:bg-indigo-500/30 font-sans">
@@ -226,20 +273,58 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
-            {[
-              { icon: SplitSquareHorizontal, label: "1. Scene Segmentation" },
-              { icon: Waves, label: "2. Stem Separation" },
-              { icon: Eye, label: "3. Context Captioning" },
-              { icon: BrainCircuit, label: "4. Placement Reasoning" },
-              { icon: Network, label: "5. Coherence Check" },
-              { icon: AudioWaveform, label: "6. Spatial Render" }
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col items-center p-4 bg-slate-900/50 rounded-2xl border border-white/5 hover:bg-slate-800/50 transition-colors">
-                <step.icon className="w-8 h-8 text-indigo-400 mb-4" />
-                <span className="text-sm font-medium text-slate-300">{step.label}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-center mb-12">
+            {ARCHITECTURE_STAGES.map((step, i) => {
+              const isActive = activeStage === i;
+              return (
+                <button 
+                  key={i} 
+                  onClick={() => setActiveStage(i)}
+                  className={`flex flex-col items-center p-4 rounded-2xl border transition-all duration-300 ${
+                    isActive 
+                      ? "bg-indigo-500/10 border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.2)]" 
+                      : "bg-slate-900/50 border-white/5 hover:bg-slate-800/50 hover:border-white/20"
+                  }`}
+                >
+                  <step.icon className={`w-8 h-8 mb-4 transition-colors ${isActive ? "text-indigo-400" : "text-slate-500"}`} />
+                  <span className={`text-sm font-medium transition-colors ${isActive ? "text-white" : "text-slate-400"}`}>{step.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Stage Panel */}
+          <div className="max-w-4xl mx-auto bg-slate-900 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden min-h-[300px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 pointer-events-none" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStage}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="relative z-10 flex flex-col md:flex-row gap-8 items-start"
+              >
+                <div className="p-4 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 shrink-0">
+                  {(() => {
+                    const Icon = ARCHITECTURE_STAGES[activeStage].icon;
+                    return <Icon className="w-12 h-12 text-indigo-400" />;
+                  })()}
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">
+                    {ARCHITECTURE_STAGES[activeStage].title}
+                  </h3>
+                  <p className="text-lg text-slate-300 font-light leading-relaxed mb-6">
+                    {ARCHITECTURE_STAGES[activeStage].description}
+                  </p>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 rounded-lg shadow-inner">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tech Stack:</span>
+                    <span className="text-sm font-medium text-indigo-300">{ARCHITECTURE_STAGES[activeStage].tech}</span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
