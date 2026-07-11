@@ -1,0 +1,26 @@
+{
+  "scene_id": 10,
+  "placements": [
+    {
+      "stem": "vocals",
+      "channel": "center",
+      "rationale": "Vocals maintain established center placement; no visual cue suggests a change."
+    },
+    {
+      "stem": "drums",
+      "channel": "center",
+      "rationale": "Drums remain center as per memory; close-up of foot provides no directional motivation."
+    },
+    {
+      "stem": "bass",
+      "channel": "center",
+      "rationale": "Bass stays center, consistent with memory; no visual element justifies relocation."
+    },
+    {
+      "stem": "other",
+      "channel": "bed_full",
+      "rationale": "Other stem continues as full ambient bed, matching the open desert setting."
+    }
+  ],
+  "memory_updates": {}
+}

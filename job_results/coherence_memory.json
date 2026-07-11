@@ -1,0 +1,18 @@
+{
+  "vocals": {
+    "first_seen": 1,
+    "channel_pattern": "center"
+  },
+  "drums": {
+    "first_seen": 1,
+    "channel_pattern": "center"
+  },
+  "bass": {
+    "first_seen": 1,
+    "channel_pattern": "center"
+  },
+  "other": {
+    "first_seen": 1,
+    "channel_pattern": "bed_full"
+  }
+}

@@ -1,0 +1,3044 @@
+[
+  {
+    "scene_id": 1,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium shot of a muscular person's torso and hands\n- They are wearing primitive/tribal leather and bone armor\n- They are sharpening a stone-tipped spear or"
+  },
+  {
+    "scene_id": 2,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: An outdoor encampment or settlement with massive skeletal remains (like a giant ribcage/spine) in the background, wooden scaffolding, primitive structures, desert-like environment."
+  },
+  {
+    "scene_id": 3,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A desert or arid landscape with a massive creature skull (looks like a dragon or monster skull) forming an archway or structure. There's a settlement/camp around it"
+  },
+  {
+    "scene_id": 4,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: A primitive/tribal wooden watchtower or fortification. Background shows a massive dinosaur-like skull with horns, wooden spikes/palisades, and a dusty/desert-like environment with warm golden lighting ("
+  },
+  {
+    "scene_id": 5,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape, vast sandy expanse. There's a fortified settlement/camp inside a circular wooden palisade fence.\n- Central feature: A massive, colossal dragon or"
+  },
+  {
+    "scene_id": 6,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape with sand dunes. There's a massive stone/rock formation that looks like a giant hand (fingers) emerging from the sand on the left side.\n- Lighting: Bright daylight, sun appears to be high or slightly"
+  },
+  {
+    "scene_id": 7,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The description should only include what is visually present: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert environment, sandy background, warm golden lighting suggesting sunlight\n- Character: Young man with dark curly hair pulled back, wearing rugged desert attire - a textured scarf/wrap around neck and shoulders, sleeveless weathered garment with shoulder"
+  },
+  {
+    "scene_id": 8,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape, clear sky, giant fossilized bones/vertebrae sticking out of the sand\n- Lighting: Bright daylight, warm sunlight, clear sky\n- Camera framing"
+  },
+  {
+    "scene_id": 9,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: Desert landscape with sand dunes in the background. There are large, weathered wooden or stone posts/pillars in the foreground/midground.\n- Lighting: Bright, warm, sunny daylight. H"
+  },
+  {
+    "scene_id": 10,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/extreme close-up shot\n- A booted foot (worn, dark leather boot, pants tucked in or wrapped) is stepping or resting on a rounded rock\n- Background is a desert/sandy landscape with warm golden lighting"
+  },
+  {
+    "scene_id": 11,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A desert-like environment with massive bone/rib structures (looks like a ribcage or skeleton of a giant creature). In the background, there appears to be a settlement or camp with tents and wooden structures.\n- Lighting: Warm,"
+  },
+  {
+    "scene_id": 12,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLet me analyze the image:\n- Setting: Desert/wasteland environment with massive skeletal remains (ribcage of a huge creature) in the background. There's a campfire in the foreground.\n- Lighting: Warm"
+  },
+  {
+    "scene_id": 13,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person with blonde braided hair/dreadlocks, dark face paint/markings across eyes and forehead.\n- Person is looking off-screen to the left"
+  },
+  {
+    "scene_id": 14,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape with massive, weathered skeletal remains (looks like a giant creature's bones/ribs) scattered across sandy terrain, distant dunes visible.\n- Lighting: Warm, golden hour sunlight from the left/background, casting long shadows and"
+  },
+  {
+    "scene_id": 15,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Rocky desert landscape with large stone formations, some illuminated by warm light\n- Lighting: Warm golden light hitting the rock formations from the right/background, suggesting sunrise or sunset\n- Camera framing: Medium shot, slightly behind the character,"
+  },
+  {
+    "scene_id": 16,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position/action, and visible directional cues. No dialogue, sound, or music description. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape, ancient/fantasy encampment with tents, wooden scaffolding/structures around a massive creature skull\n- Central subject: Enormous horned skull (looks like a dragon or beast) with large fangs/teeth"
+  },
+  {
+    "scene_id": 17,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Appears to be a rustic wooden structure, possibly a barn or stable, with wooden beams and a cross visible in the background haze. Dusty or smoky atmosphere."
+  },
+  {
+    "scene_id": 18,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music description. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/low angle shot of feet/legs\n- Two characters standing on sandy/rocky ground\n- Left: human wearing worn boots and pants with frayed/torn fabric at the ankle\n- Right: large, non-human foot"
+  },
+  {
+    "scene_id": 19,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Appears to be a rustic, possibly ancient or historical setting. There's a wooden post on the left. In the background, there's an opening showing what looks like an arena or coliseum with many figures/people in the distance."
+  },
+  {
+    "scene_id": 20,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The description should only cover visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Appears to be rustic, possibly ancient or medieval. Stone or earthen walls in background, wooden post to the right.\n- Lighting: Warm, golden-hour-like sunlight coming from the right side (bright area on the far right edge"
+  },
+  {
+    "scene_id": 21,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up/medium close-up shot of a person\n- The person is centered in the frame\n- They're wearing what looks like desert/rough clothing - a scarf/wrap around neck, tattered sleeve on left shoulder\n-"
+  },
+  {
+    "scene_id": 22,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Appears to be rustic, possibly ancient or medieval. Stone or earthen walls in background. Wooden post/structure to the right.\n- Lighting: Warm, golden-hour-like sunlight. Strong directional light coming from the right side"
+  },
+  {
+    "scene_id": 23,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": false
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- It's a medium close-up or close-up shot of a person with dark curly hair pulled back, wearing a rough-textured brown/grey scarf/shawl\n- The background is hazy, warm-ton"
+  },
+  {
+    "scene_id": 24,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- An elderly man with long gray hair, white beard, and dark markings/ash on his face\n- He is positioned slightly right of center, leaning against or standing next to a thick wooden post on"
+  },
+  {
+    "scene_id": 25,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert or arid environment, sandy/earthy background, appears to be outdoors in bright daylight\n- Lighting: Warm, natural sunlight, bright conditions\n- Camera framing: Medium close-up or close-up, centered on the character"
+  },
+  {
+    "scene_id": 26,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- There's an elderly man with long white hair and beard, dirt/smudges on face, wearing simple robes, leaning against a wooden post/wall on the left/center.\n- On the right side of frame, a younger person (seen"
+  },
+  {
+    "scene_id": 27,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Close-up/extreme close-up shot\n- A person's torso wrapped in thick, coarse rope\n- Another person's hands (wearing wrapped/bandaged wrists/forearms) holding a knife/blade\n-"
+  },
+  {
+    "scene_id": 28,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two characters in what appears to be a warm, earthy, possibly ancient or historical setting\n- An older man with long gray hair, beard, and dark markings around his eyes is positioned left/center, looking toward the right side"
+  },
+  {
+    "scene_id": 29,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Interior of a rustic wooden structure, possibly a tent or wooden building, with canvas/walls in background. Warm, dusty atmosphere.\n- Lighting: Warm golden light coming from the right side (visible opening in the background),"
+  },
+  {
+    "scene_id": 30,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- It's a close-up/medium close-up shot\n- A young man with dark curly hair pulled back, wearing rough/tattered clothing with a scarf/collar, is positioned slightly right of center\n- He appears"
+  },
+  {
+    "scene_id": 31,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two characters in what appears to be a warm, earthy, possibly ancient or rustic setting\n- An older man with long gray hair, beard, weathered face with dirt/smudges, wearing simple robes, positioned left/center\n-"
+  },
+  {
+    "scene_id": 32,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up shot of a person with dark curly hair pulled back, wearing rough, textured, earth-toned clothing (looks like a scarf or cowl).\n- The person"
+  },
+  {
+    "scene_id": 33,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- There's an older man with long gray hair, beard, dirt/bruises on face, wearing rough/tattered clothing, leaning against or tied to a wooden post/tree. He looks"
+  },
+  {
+    "scene_id": 34,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": false
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- It's a close-up shot of a young man with dark curly hair pulled back, wearing rough textured clothing (looks like a scarf/collar of coarse fabric)\n- He has dirt/smudges on his face,"
+  },
+  {
+    "scene_id": 35,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The description should only cover what is visually present: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- There's an older man with long gray hair, white beard, dirt/ash on his face, looking upward with a distressed or intense expression. He's on the left side of the frame.\n- There's a younger person with curly dark hair, seen"
+  },
+  {
+    "scene_id": 36,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up shot of a person with dark curly hair pulled back, wearing rough textured clothing (looks like a scarf/collar)\n- The person is positioned slightly to the right of center\n- There's another out-of"
+  },
+  {
+    "scene_id": 37,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two characters seen from behind/over-the-shoulder perspective\n- Left character: long white/blonde hair, beard, light-colored robe/tunic. Near a large wooden post on the"
+  },
+  {
+    "scene_id": 38,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A desert encampment or settlement with massive skeletal remains (likely a giant creature) integrated into the architecture. There are tents, wooden structures, ladders, and a wooden pal"
+  },
+  {
+    "scene_id": 39,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Two characters in the foreground: a younger person on the left in a dark hooded cloak/robe, partially emerging from behind a fabric drape or tent flap, hand visible on the fabric; an older person"
+  },
+  {
+    "scene_id": 40,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Close-up profile shot of a person with dark curly hair tied back, wearing a textured, dusty hooded garment\n- The person is facing left, looking downward or forward with a somber/concentrated expression"
+  },
+  {
+    "scene_id": 41,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person wearing rough, layered clothing (scarf/cowl, textured fabric)\n- Another figure partially visible on the left edge of frame (out of focus, wearing what looks like a head covering)\n- Background"
+  },
+  {
+    "scene_id": 42,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: A sunlit, dusty village or encampment with primitive/tribal architecture. There are large skeletal remains (maybe whale or dragon bones) forming structures, wooden palisade fences, tents."
+  },
+  {
+    "scene_id": 43,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense\n- Factual\n\nLooking at the image:\n- Close-up/medium close-up of a young person with dark curly hair pulled back, wearing rough, layered desert/post-apocalyptic style clothing (scarf/cowl, textured shoulder piece)\n-"
+  },
+  {
+    "scene_id": 44,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert/wasteland environment with sandy/earthy structures in background, looks like a village or encampment with tents or makeshift buildings. Bright daylight.\n- Characters: Elderly man with long white hair and beard in foreground/c"
+  },
+  {
+    "scene_id": 45,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A desert marketplace or encampment built beneath the massive ribcage-like skeleton of a giant creature. Tents and makeshift structures line a sandy path.\n- Lighting: Bright daylight, sun casting strong shadows, backlighting/haze"
+  },
+  {
+    "scene_id": 46,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- A bearded man in primitive/tribal armor made of bones, fur, and scales\n- He holds a spear/staff in his left hand (from viewer's perspective, it's on the left side of frame)\n- Background shows massive"
+  },
+  {
+    "scene_id": 47,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: A desert marketplace or encampment under massive curved skeletal/bone arches or ribcage structures. Tents line both sides. Sandy ground.\n- Lighting: Bright daylight, sun high/backlit creating"
+  },
+  {
+    "scene_id": 48,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: A sunlit, dusty marketplace or village square with ancient/monumental architecture (large stone structures, tents/stalls to the right)\n- Lighting: Bright daylight, sun coming from behind"
+  },
+  {
+    "scene_id": 49,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person with braided hair, face paint (dark stripes across eyes/forehead), wearing tribal/post-apocalyptic armor with shoulder spikes and necklaces."
+  },
+  {
+    "scene_id": 50,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The description should only cover visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A desert encampment/village with tents, large curved bone-like or rib-like structures in the background, sandy ground. There are campfires burning.\n- Lighting: Bright daylight, sun casting shadows.\n- Camera framing: Close-up or"
+  },
+  {
+    "scene_id": 51,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person with braided hair, face paint/mask-like markings, wearing armor/shoulder pads with spikes, necklaces\n- Background shows an outdoor setting with large curved architectural structures (arches/"
+  },
+  {
+    "scene_id": 52,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person facing camera directly, centered in frame\n- Person has braided hair, face paint/markings (black horizontal stripes on forehead and across nose/eyes), wearing what appears to be tribal or post-apocalyptic"
+  },
+  {
+    "scene_id": 53,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment, sandy ground, large ribcage/bone structure in background, tents/camp on left, some structures/people in background.\n- Lighting: Bright"
+  },
+  {
+    "scene_id": 54,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two warriors are fighting in close combat\n- Left character: dark hair, wearing desert/tribal clothing, wielding a curved blade/sword raised above, positioned on left side of frame\n- Right character: braided/blonde dreadlocks,"
+  },
+  {
+    "scene_id": 55,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment, sandy ground, massive ribcage/bone structure in background, makeshift tents/camp on left, some structures on right, dusty atmosphere.\n- Lighting: Bright daylight, sun casting shadows, hazy/dust"
+  },
+  {
+    "scene_id": 56,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment with massive skeletal remains (ribs/arching bones) in background, looks like a village or encampment with some structures/fences. Sandy ground.\n- Lighting: Bright daylight, harsh sun, warm tones, dust"
+  },
+  {
+    "scene_id": 57,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment, ancient ruins or colossal skeletal/arch structures in background, sandy ground, bright daylight/sunlight\n- Lighting: Bright, sunny, harsh daylight, sun"
+  },
+  {
+    "scene_id": 58,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person with dark curly hair pulled back, wearing rough/textured clothing (looks like fur or coarse fabric collar)\n- Background shows out-of-focus wooden structures/logs/trees and possibly a structure to the left"
+  },
+  {
+    "scene_id": 59,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person with dark skin, blonde dreadlocks/braids, face paint/mud (dark markings across eyes/face), wearing what appears to be primitive/tribal armor or clothing made of rough materials."
+  },
+  {
+    "scene_id": 60,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person's face/upper body\n- Person is positioned slightly to the left of center\n- Wearing what looks like rough, textured clothing, possibly a scarf"
+  },
+  {
+    "scene_id": 61,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Close-up/extreme close-up of a person with braided hair, dark paint/markings on face\n- Wearing what appears to be rugged/tribal armor with leather and bone/wood elements\n- Outdoor"
+  },
+  {
+    "scene_id": 62,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Left side: A man with dark hair in a ponytail, wearing desert/tan robes, facing right, appears to be in a combat stance or facing off against someone. His body is angled toward the right side of the frame.\n- Right"
+  },
+  {
+    "scene_id": 63,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment with massive curved bone/rib-like structures in the background, some kind of settlement or arena. Sandy ground. Hazy/dusty atmosphere.\n- Lighting: Bright daylight, sun appears to be high or"
+  },
+  {
+    "scene_id": 64,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two men in close combat, struggling over a large round shield between them.\n- Left character: dark hair, wearing desert/tribal style clothing, scarf, pushing against the shield.\n- Right character: blonde/dreadlocked hair, muscular,"
+  },
+  {
+    "scene_id": 65,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/extreme close-up shot\n- A person with dark curly hair, intense eyes looking forward\n- Holding two swords crossed in front of their face, creating an X shape"
+  },
+  {
+    "scene_id": 66,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up/over-the-shoulder shot. One character is in the foreground right, out of focus (we see their shoulder/back of head with long hair/fur).\n- The main subject is a young man with"
+  },
+  {
+    "scene_id": 67,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/extreme close-up of a person in what appears to be medieval or fantasy-style clothing (rough textured fabric, possibly armor or rugged garments)\n- The person is holding or wielding a sword/weapon that crosses the frame"
+  },
+  {
+    "scene_id": 68,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person wearing a scarf/hooded garment\n- Desert or arid environment in the background (blurry, sandy tones)\n- Warm, natural lighting (sunlight)\n- Character is positioned slightly off-center"
+  },
+  {
+    "scene_id": 69,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Outdoor, appears to be a rustic/primitive village with wooden structures in the background, hazy/dusty atmosphere\n- Lighting: Warm, golden hour sunlight, backlit hazy background\n- Camera framing: Medium"
+  },
+  {
+    "scene_id": 70,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment, ancient/tribal marketplace or village, massive curved bone/rib-like structures forming an archway in the background, large stone statue of a creature/de"
+  },
+  {
+    "scene_id": 71,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A rustic, possibly historical or biblical-looking encampment with tents made of rough cloth/sacking. Wooden poles, ropes. Background shows other figures sitting near tents and sacks"
+  },
+  {
+    "scene_id": 72,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLet me analyze the image:\n- Setting: Desert/wasteland environment with massive curved bone/tusk-like structures in the background. There are makeshift tents, wooden scaffolding, and primitive structures. It looks like"
+  },
+  {
+    "scene_id": 73,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert/sandy environment, appears to be outdoors in a barren, sandy landscape\n- Lighting: Bright, harsh sunlight from above/left, creating strong shadows and highlights on the face\n- Camera framing:"
+  },
+  {
+    "scene_id": 74,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person with braided hair, face paint/markings, wearing tribal/primitive armor and necklaces\n- The person appears to be shouting or expressing intense emotion (mouth open, teeth showing, facial tension"
+  },
+  {
+    "scene_id": 75,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert/sandy environment, looks like a village or encampment with tents in the background. Hazy/dusty atmosphere.\n- Lighting: Bright, warm, daylight, sunlit creating long shadows.\n- Camera framing: Low"
+  },
+  {
+    "scene_id": 76,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- A muscular figure with dreadlocks and tribal/ritualistic face paint is in the foreground, slightly off-center to the left\n- He appears to be leaning forward aggressively or in a combat stance\n- He's wearing primitive/tribal armor"
+  },
+  {
+    "scene_id": 77,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment, sandy ground, makeshift structures/tents in background, large curved rib-like structures (maybe bones or architecture) in the distance. Looks like a village or encampment.\n- Lighting: Bright,"
+  },
+  {
+    "scene_id": 78,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A dusty, sunlit ancient or biblical-looking village/town square with stone or mud-brick buildings. There's a crowd of robed people standing in the background.\n- Lighting: Bright, hazy sunlight streaming from the background,"
+  },
+  {
+    "scene_id": 79,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment with massive curved skeletal remains or ribcage structures in the background. Sandy ground. Some structures/tents in the background. Hazy/dusty atmosphere.\n- Lighting: Bright daylight, warm tones, sun casting shadows"
+  },
+  {
+    "scene_id": 80,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: Desert/sandy environment with massive curved bone-like or rib-like structures in the background. There are tents or makeshift shelters. It looks like a settlement or camp.\n- Lighting: Bright, harsh sunlight"
+  },
+  {
+    "scene_id": 81,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: A desert or sandy encampment with tents, large fabric structures, people in the background. It looks like a battlefield or camp with bodies on the ground.\n- Lighting: Bright, harsh sunlight,"
+  },
+  {
+    "scene_id": 82,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music description. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Sandy terrain/desert sand\n- Lighting: Bright, harsh sunlight creating strong shadows (likely from above/side)\n- Camera framing: Low angle/ground level, close-up or medium close-up, slightly tilted/dutch angle"
+  },
+  {
+    "scene_id": 83,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on what is visually present: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert-like environment with massive skeletal remains (ribs/bones) arching in the background, bright daylight sky\n- Lighting: Bright, sunny, backlit/sun behind the bones creating a hazy glow, warm"
+  },
+  {
+    "scene_id": 84,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Sandy ground/desert-like environment. The person is lying on sand.\n- Lighting: Bright, harsh sunlight creating strong shadows. Sunny.\n- Camera framing: Close-up, low"
+  },
+  {
+    "scene_id": 85,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: Desert landscape, giant skeletal ribcage/arch structure in background, dusty/sandy ground\n- Lighting: Bright daylight, hazy/sunlit\n- Camera framing: Wide/medium shot, low angle"
+  },
+  {
+    "scene_id": 86,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Sandy/desert ground, bright daylight\n- Character: A person with dark curly hair, dirt/sand on face, wearing tattered/rough clothing, lying on their back on the sand\n- Action/Position:"
+  },
+  {
+    "scene_id": 87,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Character: A muscular warrior with dark skin, face paint/markings, braided hair with blonde/gold tips, wearing leather armor/shoulder pads, necklaces, arm bands. He appears to be in a combat stance or looking down/intensely forward"
+  },
+  {
+    "scene_id": 88,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Appears to be an outdoor rustic/primitive environment, possibly a village with wooden structures and tents in the background. Desert-like or arid setting.\n- Lighting: Bright daylight, sunny, high contrast.\n- Camera framing: Medium shot"
+  },
+  {
+    "scene_id": 89,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Sandy/desert ground, footprints visible in the sand.\n- Lighting: Bright, harsh sunlight creating strong shadows. The shadow of the person and the pole are visible.\n-"
+  },
+  {
+    "scene_id": 90,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- There's an elderly man with long white hair and beard in the center, wearing light-colored robes. He appears to be looking off to the right of frame with a concerned or intense expression.\n- To the left of frame: a person"
+  },
+  {
+    "scene_id": 91,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape, vast sandy expanse. There's a fortified settlement/camp inside a circular wooden palisade fence. A massive creature skeleton (looks like a dragon or dinosaur skull"
+  },
+  {
+    "scene_id": 92,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Outdoor primitive/tribal encampment with a large carved stone structure or cave entrance. There's a wooden scaffolding/tower in the background left, tents, and a wooden palisade fence. Large stone spikes/teeth-like rocks"
+  },
+  {
+    "scene_id": 93,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- It's a medium close-up / close-up of a person\n- The person is centered in the frame\n- They have a distinctive hairstyle: shaved sides with a topknot/mohawk\n-"
+  },
+  {
+    "scene_id": 94,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two men are kneeling in the center foreground, hands tied behind their backs.\n- Left: younger man with dark hair, wearing dark/tattered clothing, scarf.\n- Right: older man with long white hair and beard, wearing light-colored"
+  },
+  {
+    "scene_id": 95,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues\n- Do not describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense\n- Factual\n\nLooking at the image:\n- It's a close-up/medium close-up shot of a person\n- The person has a distinctive hairstyle (shaved sides, topknot/mohawk), facial markings/tattoos"
+  },
+  {
+    "scene_id": 96,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Exterior of a large stone/tribal structure with carved faces, wooden scaffolding/platform on the left. It looks like ancient/tribal/primitive architecture.\n- Lighting: Warm, golden hour sunlight from the left/front. Fire/t"
+  },
+  {
+    "scene_id": 97,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up shot of an elderly man with long white/grey hair and a full beard\n- He has weathered skin, some dirt or markings on his face\n- He's wearing what appears to be simple,"
+  },
+  {
+    "scene_id": 98,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Character: A person with a distinctive hairstyle (shaved sides, topknot/mohawk), facial markings/scars, wearing a heavy fur collar/cape and bone/skull necklaces/totems. Positioned in the right"
+  },
+  {
+    "scene_id": 99,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A cavernous, torch-lit interior with carved stone walls and archways.\n- Lighting: Warm, firelight from torches on the left and right sides.\n- Camera"
+  },
+  {
+    "scene_id": 100,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/extreme close-up of an elderly man with long white hair and beard\n- His eyes are wide, mouth slightly open, looking upward/rightward with an expression of shock"
+  },
+  {
+    "scene_id": 101,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Close-up shot of a person with dark curly hair, wearing a beige/brown hooded garment\n- The person appears emotional, with tears visible on their face, looking upward and slightly to the right (their"
+  },
+  {
+    "scene_id": 102,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music descriptions. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's a close-up/over-the-shoulder shot\n- An elderly man with long white hair, white beard, and facial markings/tattoos is centered in frame, facing slightly towards camera/left\n- He appears to be speaking or smiling"
+  },
+  {
+    "scene_id": 103,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person with dark curly hair wearing a beige/brown scarf or cowl\n- They appear to be crying, tears visible, emotional expression\n- Facing slightly to the right, looking at another"
+  },
+  {
+    "scene_id": 104,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The description should only cover what is visually present: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/over-the-shoulder shot. An elderly man with long white hair, white beard, and weathered/tanned skin with dark markings/tattoos on his face is in the center/right, facing slightly left and looking at someone off"
+  },
+  {
+    "scene_id": 105,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": false
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person wearing fur clothing\n- The person has a mohawk hairstyle, facial tattoos/markings, earrings, and a necklace with bone/teeth-like ornaments\n- The background appears to be a"
+  },
+  {
+    "scene_id": 106,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- It's an extreme close-up or medium close-up of a person with long blonde hair.\n- The hair is out of focus/blurred in the foreground, obscuring the face.\n-"
+  },
+  {
+    "scene_id": 107,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should NOT describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up shot of a person (appears to be a man) from the shoulders up, slightly off-center to the left\n- He is wearing a beige/tan scarf or"
+  },
+  {
+    "scene_id": 108,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "high",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/medium close-up of a person centered in frame\n- Person has braided hair with light-colored beads, face paint/markings, wearing what appears to be leather/tribal armor with shoulder pads\n- Setting appears to"
+  },
+  {
+    "scene_id": 109,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "high",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Outdoor, dusty/earthy environment, primitive/tribal looking. There's a wooden spike fence/barrier in the background and large tusk-like bones or structures. Looks like a village or arena.\n- Lighting: Warm, golden hour"
+  },
+  {
+    "scene_id": 110,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Close-up/medium close-up of a person wearing a thick fur garment/collar\n- Person has dark hair styled up/back, shaved sides, long hair in back\n- Facial tattoos/markings on face"
+  },
+  {
+    "scene_id": 111,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLet me analyze the image:\n- Setting: A fortified village or encampment at dusk/dawn. Wooden palisade walls with torches. Tents and wooden watchtowers in the background. Sandy"
+  },
+  {
+    "scene_id": 112,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The constraints are:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nLooking at the image:\n- Setting: Outdoor, appears to be a camp or village at dusk/dawn. There's a tent in the background, some fire/torches burning, and what looks like a wooden structure or gallows on the"
+  },
+  {
+    "scene_id": 113,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music description. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Close-up/profile shot of a person with blonde dreadlocks, face paint/markings, wearing tribal/post-apocalyptic style clothing with spiked shoulder armor and necklaces\n- Looking toward the left side of frame (their left, frame left)\n-"
+  },
+  {
+    "scene_id": 114,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. I should not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: A primitive or tribal fort/village at dusk/dawn. Wooden palisade walls, large bones tied to the fence, torches burning.\n- Lighting: Low natural light (twilight blue sky), warm"
+  },
+  {
+    "scene_id": 115,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants a description of a single film frame for a spatial audio placement agent. The agent has never seen the footage. I need to describe only what is visually present: setting, lighting, camera framing, character position and action, and any visible directional cues. Do not describe dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Setting: Desert landscape at sunset/dusk. There's a massive creature skeleton (looks like a dragon or beast) forming a structure or settlement in the middle distance. The settlement has fires/t"
+  },
+  {
+    "scene_id": 116,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "medium",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. I need to focus only on visual elements: setting, lighting, camera framing, character position and action, and visible directional cues. No dialogue, sound, or music. Keep it to 1-2 sentences, present tense, factual.\n\nLooking at the image:\n- Two characters in a desert/arid landscape\n- Time appears to be dusk/dawn (golden hour/blue hour) with warm light on the horizon transitioning to blue sky above\n- Character in foreground right: young person with curly hair, wearing"
+  },
+  {
+    "scene_id": 117,
+    "stems": [
+      {
+        "name": "vocals",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "drums",
+        "energy": "medium",
+        "has_transients": true
+      },
+      {
+        "name": "bass",
+        "energy": "low",
+        "has_transients": true
+      },
+      {
+        "name": "other",
+        "energy": "low",
+        "has_transients": true
+      }
+    ],
+    "visual_caption": "The user wants me to describe a single film frame for a spatial audio placement agent. The frame is almost entirely black with a logo in the bottom right corner that says \"HIGGSFIELD AI\" (with AI in a green/yellow box). \n\nKey constraints:\n- Describe only what is visually present: setting, lighting, camera framing, character position and action, visible directional cues\n- Do NOT describe dialogue, sound, or music\n- Keep it to 1-2 sentences\n- Present tense, factual\n\nSo I need to describe:\n- The frame is completely black/dark"
+  }
+]

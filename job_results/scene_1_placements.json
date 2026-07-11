@@ -1,0 +1,43 @@
+{
+  "scene_id": 1,
+  "placements": [
+    {
+      "stem": "vocals",
+      "channel": "center",
+      "rationale": "Close-up of character, no directional cues, so vocals centered."
+    },
+    {
+      "stem": "drums",
+      "channel": "center",
+      "rationale": "No directional cues, drums likely diegetic or score, placed center."
+    },
+    {
+      "stem": "bass",
+      "channel": "center",
+      "rationale": "No directional cues, bass centered."
+    },
+    {
+      "stem": "other",
+      "channel": "center",
+      "rationale": "Sharpening sound likely in other, centered on character."
+    }
+  ],
+  "memory_updates": {
+    "vocals": {
+      "first_seen": 1,
+      "channel_pattern": "center"
+    },
+    "drums": {
+      "first_seen": 1,
+      "channel_pattern": "center"
+    },
+    "bass": {
+      "first_seen": 1,
+      "channel_pattern": "center"
+    },
+    "other": {
+      "first_seen": 1,
+      "channel_pattern": "center"
+    }
+  }
+}

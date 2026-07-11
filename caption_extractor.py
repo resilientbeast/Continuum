@@ -3,16 +3,26 @@ caption_extractor.py
 
 Automatic replacement for hand-authored visual_caption. Extracts a
 representative keyframe from each scene's source video clip via ffmpeg,
-then captions it using a serverless vision-language model (e.g.
-Llama 3.2 Vision) served through Fireworks on the same OpenAI-compatible
-API surface as placement_agent_harness.py's reasoning model.
+then captions it using a vision-language model served through Fireworks
+on the same OpenAI-compatible API surface as placement_agent_harness.py's
+reasoning model.
 
 Requires: ffmpeg + ffprobe on PATH (already in the project Dockerfile).
 
 Env vars:
   VISION_LLM_BASE_URL   https://api.fireworks.ai/inference/v1
   VISION_LLM_API_KEY    Your Fireworks API key
-  VISION_LLM_MODEL      default: accounts/fireworks/models/llama-v3p2-11b-vision-instruct
+  VISION_LLM_MODEL      default: accounts/fireworks/models/kimi-k2p6
+
+NOTE: the docstring in the prior version of this file documented a default
+of accounts/fireworks/models/llama-v3p2-11b-vision-instruct, but the code
+had accounts/fireworks/models/kimi-k2p6 hardcoded. Confirm which one you
+actually intend to use going forward and update whichever side is stale -
+this fix keeps kimi-k2p6 (since that's what generated your existing scene
+dataset) and makes it behave correctly, but llama-v3p2-11b-vision-instruct
+is a simpler option if you'd rather not deal with thinking-mode behavior
+at all: it's a direct-answer captioning model, not a reasoning model, so
+none of the thinking-leak issue below would apply to it in the first place.
 """
 
 import base64
@@ -30,7 +40,41 @@ visually present: setting, lighting, camera framing, character position and
 action, and any visible directional cues (e.g. something happening to the
 left/right of frame, a light source, an object in motion). Do not describe
 dialogue, sound, or music -- those come from a separate audio analysis stage.
-Keep it to 1-2 sentences, present tense, factual."""
+
+Respond with ONLY the 1-2 sentence description itself. Do not restate these
+instructions, do not include any preamble or lead-in phrase such as "Looking
+at the image" or "Let me analyze", and do not show your reasoning. Output
+only the final descriptive sentences, present tense, factual."""
+
+# Defense-in-depth: even with thinking disabled, Kimi K2 deployments don't
+# always reliably suppress chain-of-thought in message.content (documented
+# behavior across the Kimi K2 family, not specific to this one model
+# string). If a lead-in phrase still shows up, keep only what follows it.
+_LEAD_IN_MARKERS = [
+    "looking at the image",
+    "looking at this image",
+    "let me analyze the image",
+    "let me look at the image",
+    "let's analyze the image",
+    "analyzing the image",
+]
+
+
+def _strip_reasoning_preamble(raw_text):
+    lowered = raw_text.lower()
+    best_idx = -1
+    best_marker = None
+    for marker in _LEAD_IN_MARKERS:
+        idx = lowered.rfind(marker)
+        if idx > best_idx:
+            best_idx = idx
+            best_marker = marker
+
+    if best_idx == -1:
+        return raw_text.strip()
+
+    after = raw_text[best_idx + len(best_marker):]
+    return after.lstrip(":\n- ").strip()
 
 
 def _get_duration_sec(video_path):
@@ -67,7 +111,7 @@ def extract_keyframe(video_path, out_path, timestamp=None):
 
 def caption_scene(frame_path, model=None):
     """
-    Sends a single keyframe to the self-hosted VL model and returns a
+    Sends a single keyframe to the vision-language model and returns a
     short visual caption, ready to drop into the placement agent's
     visual_caption field.
     """
@@ -91,10 +135,29 @@ def caption_scene(frame_path, model=None):
             }
         ],
         temperature=0.2,
-        max_tokens=120
+        max_tokens=500,
+        # Kimi K2.6 is a thinking model by default, and Fireworks doesn't
+        # route the reasoning trace to a separate field the way Moonshot's
+        # own API does -- it can leak straight into message.content. This
+        # is what was eating the token budget before the model ever reached
+        # the actual description, causing every caption to truncate mid-word.
+        extra_body={"thinking": {"type": "disabled"}},
     )
 
-    return response.choices[0].message.content.strip()
+    choice = response.choices[0]
+    raw = (choice.message.content or "").strip()
+
+    if choice.finish_reason == "length":
+        print(f"[caption_extractor] WARNING: response truncated at max_tokens for {frame_path}")
+
+    if not raw:
+        # Some Kimi/Fireworks deployments still return empty content even
+        # with thinking disabled, if reasoning consumed the whole budget.
+        reasoning = getattr(choice.message, "reasoning_content", None) or getattr(choice.message, "reasoning", None)
+        print(f"[caption_extractor] WARNING: empty content for {frame_path}; reasoning present: {bool(reasoning)}")
+        return ""
+
+    return _strip_reasoning_preamble(raw)
 
 
 def auto_caption_scene(video_path, workdir):

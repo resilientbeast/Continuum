@@ -10,6 +10,17 @@ import numpy as np
 import librosa
 from pathlib import Path
 
+# Onsets-per-second above this are considered "transient-heavy". Tuned as a
+# starting point; validate against your own corpus (onset_rate is returned
+# in the feature dict so you can inspect the actual distribution and retune).
+ONSET_RATE_THRESHOLD = 1.5
+
+# Peak-picking sensitivity for onset_detect. Higher = fewer, stronger-only
+# onsets. Demucs separation leakage (residual bleed from other stems) can
+# register as spurious low-amplitude onsets at the default delta, which is
+# what was making has_transients saturate to True almost everywhere.
+ONSET_DELTA = 0.07
+
 
 def extract_stem_features(audio_path, sr=22050):
     """
@@ -21,13 +32,23 @@ def extract_stem_features(audio_path, sr=22050):
     if len(y) == 0:
         return _empty_features(audio_path)
 
+    duration_sec = len(y) / sr
+
     rms = librosa.feature.rms(y=y)[0]
     mean_rms = float(np.mean(rms))
     energy_label = _bucket_energy(mean_rms)
 
     onset_env = librosa.onset.onset_strength(y=y, sr=sr)
-    onsets = librosa.onset.onset_detect(onset_envelope=onset_env, sr=sr)
-    has_transients = len(onsets) > 3  # more than a few sharp attacks = transient-heavy
+    onsets = librosa.onset.onset_detect(
+        onset_envelope=onset_env,
+        sr=sr,
+        delta=ONSET_DELTA,
+    )
+
+    # Rate, not raw count - a 9s scene and a 0.6s scene need different
+    # absolute onset counts to represent the same actual transient density.
+    onset_rate = float(len(onsets) / duration_sec) if duration_sec > 0 else 0.0
+    has_transients = onset_rate > ONSET_RATE_THRESHOLD
 
     # crude silence ratio - helps flag near-empty stems (e.g. no dialogue this scene)
     silence_ratio = float(np.mean(rms < 0.01))
@@ -42,9 +63,10 @@ def extract_stem_features(audio_path, sr=22050):
         "name": Path(audio_path).stem,
         "energy": energy_label,
         "has_transients": bool(has_transients),
+        "onset_rate": round(onset_rate, 2),
         "silence_ratio": round(silence_ratio, 2),
         "brightness": brightness_label,
-        "duration_sec": round(len(y) / sr, 2)
+        "duration_sec": round(duration_sec, 2)
     }
 
 
@@ -61,6 +83,7 @@ def _empty_features(audio_path):
         "name": Path(audio_path).stem,
         "energy": "low",
         "has_transients": False,
+        "onset_rate": 0.0,
         "silence_ratio": 1.0,
         "brightness": "low",
         "duration_sec": 0.0
