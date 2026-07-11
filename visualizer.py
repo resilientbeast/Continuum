@@ -92,8 +92,12 @@ def plot_coherence_timeline(job_dir, placements):
         # stems all sitting at "center") stay visually distinguishable
         # instead of the last-drawn series fully hiding the others.
         if stem in directional and directional[stem]["x"]:
+            # Add a small vertical jitter so identically-placed stems remain visually parallel
+            jitter = (i - len(all_stems) / 2) * 1.5
+            jittered_y = [y + jitter for y in directional[stem]["y"]]
+            
             ax.plot(
-                directional[stem]["x"], directional[stem]["y"],
+                directional[stem]["x"], jittered_y,
                 marker=MARKERS[i % len(MARKERS)],
                 linestyle=LINESTYLES[i % len(LINESTYLES)],
                 linewidth=2, color=color, markersize=6, alpha=0.85,
@@ -173,7 +177,9 @@ def plot_positions(job_dir, placements):
 
         if stem in stem_polar and stem_polar[stem]["az"]:
             data = stem_polar[stem]
-            theta = np.radians(data["az"])
+            # Add a small angular jitter so identical points don't swallow each other
+            jitter_deg = (i - len(all_stems) / 2) * 4.0
+            theta = np.radians([az + jitter_deg for az in data["az"]])
             r = 90.0 - np.array(data["el"])
 
             ax.plot(theta, r, marker=MARKERS[i % len(MARKERS)], color=color,
