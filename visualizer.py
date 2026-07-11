@@ -183,7 +183,7 @@ def plot_positions(job_dir, placements):
             r = 90.0 - np.array(data["el"])
 
             ax.plot(theta, r, marker=MARKERS[i % len(MARKERS)], color=color,
-                    linewidth=2, markersize=8, alpha=0.8, zorder=3)
+                    linestyle='none', markersize=8, alpha=0.8, zorder=3)
             legend_handles.append(Line2D(
                 [0], [0], color=color, marker=MARKERS[i % len(MARKERS)], label=stem,
             ))
